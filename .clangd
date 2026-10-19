@@ -1,0 +1,13 @@
+CompileFlags:
+  Compiler: avr-gcc
+  Add:
+    - --target=avr
+    - "-isystem/usr/lib/avr/include"
+    - "-isystem/usr/lib/gcc/avr/7.3.0/include"
+    - "-isystem/usr/lib/gcc/avr/7.3.0/include-fixed"
+    - "-mmcu=atmega328p"
+    - "-DF_CPU=16000000UL"
+
+Diagnostics:
+  Suppress:
+    - unknown_attribute

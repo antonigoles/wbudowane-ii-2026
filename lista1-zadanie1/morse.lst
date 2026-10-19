@@ -1,0 +1,1078 @@
+
+morse.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000013e  00800100  000005d4  00000668  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000005d4  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000214  0080023e  0080023e  000007a6  2**0
+                  ALLOC
+  3 .stab         00000eb8  00000000  00000000  000007a8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000f99  00000000  00000000  00001660  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  000025f9  2**0
+                  CONTENTS, READONLY
+  6 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  0000260c  2**2
+                  CONTENTS, READONLY
+  7 .debug_info   000005f4  00000000  00000000  0000264c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000005a2  00000000  00000000  00002c40  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   0000001a  00000000  00000000  000031e2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000208  00000000  00000000  000031fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	12 e0       	ldi	r17, 0x02	; 2
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e4 ed       	ldi	r30, 0xD4	; 212
+  7c:	f5 e0       	ldi	r31, 0x05	; 5
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	ae 33       	cpi	r26, 0x3E	; 62
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	24 e0       	ldi	r18, 0x04	; 4
+  8c:	ae e3       	ldi	r26, 0x3E	; 62
+  8e:	b2 e0       	ldi	r27, 0x02	; 2
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a2 35       	cpi	r26, 0x52	; 82
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 bc 01 	call	0x378	; 0x378 <main>
+  9e:	0c 94 e8 02 	jmp	0x5d0	; 0x5d0 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <uart_transmit>:
+    UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);
+}
+
+int uart_transmit(char data, FILE *stream)
+{
+    while(!(UCSR0A & _BV(UDRE0)));
+  a6:	90 91 c0 00 	lds	r25, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+  aa:	95 ff       	sbrs	r25, 5
+  ac:	fc cf       	rjmp	.-8      	; 0xa6 <uart_transmit>
+    UDR0 = data;
+  ae:	80 93 c6 00 	sts	0x00C6, r24	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+    return 0;
+}
+  b2:	90 e0       	ldi	r25, 0x00	; 0
+  b4:	80 e0       	ldi	r24, 0x00	; 0
+  b6:	08 95       	ret
+
+000000b8 <uart_receive>:
+
+int uart_receive(FILE *stream)
+{
+    while (!(UCSR0A & _BV(RXC0)));
+  b8:	80 91 c0 00 	lds	r24, 0x00C0	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+  bc:	87 ff       	sbrs	r24, 7
+  be:	fc cf       	rjmp	.-8      	; 0xb8 <uart_receive>
+    return UDR0;
+  c0:	80 91 c6 00 	lds	r24, 0x00C6	; 0x8000c6 <__TEXT_REGION_LENGTH__+0x7f80c6>
+}
+  c4:	90 e0       	ldi	r25, 0x00	; 0
+  c6:	08 95       	ret
+
+000000c8 <uart_init>:
+#define BAUD 9600                          // baudrate
+#define UBRR_VALUE ((F_CPU)/16/(BAUD)-1)   // zgodnie ze wzorem
+
+void uart_init()
+{
+    UBRR0 = UBRR_VALUE;
+  c8:	87 e6       	ldi	r24, 0x67	; 103
+  ca:	90 e0       	ldi	r25, 0x00	; 0
+  cc:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+  d0:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+    UCSR0A = 0;
+  d4:	10 92 c0 00 	sts	0x00C0, r1	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+    UCSR0B = _BV(RXEN0) | _BV(TXEN0);
+  d8:	88 e1       	ldi	r24, 0x18	; 24
+  da:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+    UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);
+  de:	86 e0       	ldi	r24, 0x06	; 6
+  e0:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+}
+  e4:	08 95       	ret
+
+000000e6 <emit_char>:
+
+
+char emit_char(char c)
+{
+    // ignore non alphanumeric characters / emit space
+    if (((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) || (c == ' ')) {
+  e6:	90 ed       	ldi	r25, 0xD0	; 208
+  e8:	98 0f       	add	r25, r24
+  ea:	9a 30       	cpi	r25, 0x0A	; 10
+  ec:	60 f0       	brcs	.+24     	; 0x106 <emit_char+0x20>
+  ee:	98 2f       	mov	r25, r24
+  f0:	9f 7d       	andi	r25, 0xDF	; 223
+  f2:	91 54       	subi	r25, 0x41	; 65
+  f4:	9a 31       	cpi	r25, 0x1A	; 26
+  f6:	08 f0       	brcs	.+2      	; 0xfa <emit_char+0x14>
+  f8:	d3 c0       	rjmp	.+422    	; 0x2a0 <emit_char+0x1ba>
+  fa:	80 32       	cpi	r24, 0x20	; 32
+  fc:	09 f4       	brne	.+2      	; 0x100 <emit_char+0x1a>
+  fe:	d0 c0       	rjmp	.+416    	; 0x2a0 <emit_char+0x1ba>
+        // emit space
+        _delay_ms(UNIT_TIME * SPACE_BETWEEN_DOTS_AND_DASHES);
+        return ' ';
+    }
+
+    char normalized = c >= 'a' ? c - ('a' - 'A') : c;
+ 100:	81 36       	cpi	r24, 0x61	; 97
+ 102:	0c f0       	brlt	.+2      	; 0x106 <emit_char+0x20>
+ 104:	80 52       	subi	r24, 0x20	; 32
+ 106:	48 2f       	mov	r20, r24
+ 108:	08 2e       	mov	r0, r24
+ 10a:	00 0c       	add	r0, r0
+ 10c:	55 0b       	sbc	r21, r21
+ 10e:	e0 e0       	ldi	r30, 0x00	; 0
+ 110:	f1 e0       	ldi	r31, 0x01	; 1
+    _delay_ms(ms); \
+    LED_PORT &= ~_BV(LED); \
+
+
+char emit_char(char c)
+{
+ 112:	30 e0       	ldi	r19, 0x00	; 0
+ 114:	20 e0       	ldi	r18, 0x00	; 0
+ 116:	07 c0       	rjmp	.+14     	; 0x126 <emit_char+0x40>
+ 118:	2f 5f       	subi	r18, 0xFF	; 255
+ 11a:	3f 4f       	sbci	r19, 0xFF	; 255
+ 11c:	37 96       	adiw	r30, 0x07	; 7
+    }
+
+    char normalized = c >= 'a' ? c - ('a' - 'A') : c;
+
+    int8_t morse_index = 0;
+    for (int8_t i = 0; i<36; i++) {
+ 11e:	24 32       	cpi	r18, 0x24	; 36
+ 120:	31 05       	cpc	r19, r1
+ 122:	09 f4       	brne	.+2      	; 0x126 <emit_char+0x40>
+ 124:	c5 c0       	rjmp	.+394    	; 0x2b0 <emit_char+0x1ca>
+        if (MORSE_TABLE[i][0] == normalized) {
+ 126:	90 81       	ld	r25, Z
+ 128:	94 17       	cp	r25, r20
+ 12a:	15 06       	cpc	r1, r21
+ 12c:	a9 f7       	brne	.-22     	; 0x118 <emit_char+0x32>
+            break;
+        }
+    }
+
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+ 12e:	a9 01       	movw	r20, r18
+ 130:	44 0f       	add	r20, r20
+ 132:	55 1f       	adc	r21, r21
+ 134:	44 0f       	add	r20, r20
+ 136:	55 1f       	adc	r21, r21
+ 138:	44 0f       	add	r20, r20
+ 13a:	55 1f       	adc	r21, r21
+ 13c:	fa 01       	movw	r30, r20
+ 13e:	e2 1b       	sub	r30, r18
+ 140:	f3 0b       	sbc	r31, r19
+ 142:	e0 50       	subi	r30, 0x00	; 0
+ 144:	ff 4f       	sbci	r31, 0xFF	; 255
+ 146:	91 81       	ldd	r25, Z+1	; 0x01
+ 148:	99 23       	and	r25, r25
+ 14a:	09 f4       	brne	.+2      	; 0x14e <emit_char+0x68>
+ 14c:	a0 c0       	rjmp	.+320    	; 0x28e <emit_char+0x1a8>
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 14e:	2d 9a       	sbi	0x05, 5	; 5
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 150:	91 30       	cpi	r25, 0x01	; 1
+ 152:	09 f4       	brne	.+2      	; 0x156 <emit_char+0x70>
+ 154:	9d c0       	rjmp	.+314    	; 0x290 <emit_char+0x1aa>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 156:	9f ef       	ldi	r25, 0xFF	; 255
+ 158:	a7 e5       	ldi	r26, 0x57	; 87
+ 15a:	b2 e0       	ldi	r27, 0x02	; 2
+ 15c:	91 50       	subi	r25, 0x01	; 1
+ 15e:	a0 40       	sbci	r26, 0x00	; 0
+ 160:	b0 40       	sbci	r27, 0x00	; 0
+ 162:	e1 f7       	brne	.-8      	; 0x15c <emit_char+0x76>
+ 164:	00 c0       	rjmp	.+0      	; 0x166 <emit_char+0x80>
+ 166:	00 00       	nop
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+        } else {
+            // long
+            blink_for_ms(DASH_LENGTH * UNIT_TIME);
+ 168:	2d 98       	cbi	0x05, 5	; 5
+            break;
+        }
+    }
+
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+ 16a:	fa 01       	movw	r30, r20
+ 16c:	e2 1b       	sub	r30, r18
+ 16e:	f3 0b       	sbc	r31, r19
+ 170:	e0 50       	subi	r30, 0x00	; 0
+ 172:	ff 4f       	sbci	r31, 0xFF	; 255
+ 174:	92 81       	ldd	r25, Z+2	; 0x02
+ 176:	99 23       	and	r25, r25
+ 178:	09 f4       	brne	.+2      	; 0x17c <emit_char+0x96>
+ 17a:	89 c0       	rjmp	.+274    	; 0x28e <emit_char+0x1a8>
+ 17c:	af ef       	ldi	r26, 0xFF	; 255
+ 17e:	b9 ef       	ldi	r27, 0xF9	; 249
+ 180:	11 97       	sbiw	r26, 0x01	; 1
+ 182:	f1 f7       	brne	.-4      	; 0x180 <emit_char+0x9a>
+ 184:	00 c0       	rjmp	.+0      	; 0x186 <emit_char+0xa0>
+ 186:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 188:	92 81       	ldd	r25, Z+2	; 0x02
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 18a:	2d 9a       	sbi	0x05, 5	; 5
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 18c:	91 30       	cpi	r25, 0x01	; 1
+ 18e:	09 f4       	brne	.+2      	; 0x192 <emit_char+0xac>
+ 190:	9a c0       	rjmp	.+308    	; 0x2c6 <emit_char+0x1e0>
+ 192:	bf ef       	ldi	r27, 0xFF	; 255
+ 194:	e7 e5       	ldi	r30, 0x57	; 87
+ 196:	f2 e0       	ldi	r31, 0x02	; 2
+ 198:	b1 50       	subi	r27, 0x01	; 1
+ 19a:	e0 40       	sbci	r30, 0x00	; 0
+ 19c:	f0 40       	sbci	r31, 0x00	; 0
+ 19e:	e1 f7       	brne	.-8      	; 0x198 <emit_char+0xb2>
+ 1a0:	00 c0       	rjmp	.+0      	; 0x1a2 <emit_char+0xbc>
+ 1a2:	00 00       	nop
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+        } else {
+            // long
+            blink_for_ms(DASH_LENGTH * UNIT_TIME);
+ 1a4:	2d 98       	cbi	0x05, 5	; 5
+            break;
+        }
+    }
+
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+ 1a6:	fa 01       	movw	r30, r20
+ 1a8:	e2 1b       	sub	r30, r18
+ 1aa:	f3 0b       	sbc	r31, r19
+ 1ac:	e0 50       	subi	r30, 0x00	; 0
+ 1ae:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1b0:	93 81       	ldd	r25, Z+3	; 0x03
+ 1b2:	99 23       	and	r25, r25
+ 1b4:	09 f4       	brne	.+2      	; 0x1b8 <emit_char+0xd2>
+ 1b6:	6b c0       	rjmp	.+214    	; 0x28e <emit_char+0x1a8>
+ 1b8:	af ef       	ldi	r26, 0xFF	; 255
+ 1ba:	b9 ef       	ldi	r27, 0xF9	; 249
+ 1bc:	11 97       	sbiw	r26, 0x01	; 1
+ 1be:	f1 f7       	brne	.-4      	; 0x1bc <emit_char+0xd6>
+ 1c0:	00 c0       	rjmp	.+0      	; 0x1c2 <emit_char+0xdc>
+ 1c2:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 1c4:	93 81       	ldd	r25, Z+3	; 0x03
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 1c6:	2d 9a       	sbi	0x05, 5	; 5
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 1c8:	91 30       	cpi	r25, 0x01	; 1
+ 1ca:	09 f4       	brne	.+2      	; 0x1ce <emit_char+0xe8>
+ 1cc:	84 c0       	rjmp	.+264    	; 0x2d6 <emit_char+0x1f0>
+ 1ce:	bf ef       	ldi	r27, 0xFF	; 255
+ 1d0:	e7 e5       	ldi	r30, 0x57	; 87
+ 1d2:	f2 e0       	ldi	r31, 0x02	; 2
+ 1d4:	b1 50       	subi	r27, 0x01	; 1
+ 1d6:	e0 40       	sbci	r30, 0x00	; 0
+ 1d8:	f0 40       	sbci	r31, 0x00	; 0
+ 1da:	e1 f7       	brne	.-8      	; 0x1d4 <emit_char+0xee>
+ 1dc:	00 c0       	rjmp	.+0      	; 0x1de <emit_char+0xf8>
+ 1de:	00 00       	nop
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+        } else {
+            // long
+            blink_for_ms(DASH_LENGTH * UNIT_TIME);
+ 1e0:	2d 98       	cbi	0x05, 5	; 5
+            break;
+        }
+    }
+
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+ 1e2:	fa 01       	movw	r30, r20
+ 1e4:	e2 1b       	sub	r30, r18
+ 1e6:	f3 0b       	sbc	r31, r19
+ 1e8:	e0 50       	subi	r30, 0x00	; 0
+ 1ea:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ec:	94 81       	ldd	r25, Z+4	; 0x04
+ 1ee:	99 23       	and	r25, r25
+ 1f0:	09 f4       	brne	.+2      	; 0x1f4 <emit_char+0x10e>
+ 1f2:	4d c0       	rjmp	.+154    	; 0x28e <emit_char+0x1a8>
+ 1f4:	af ef       	ldi	r26, 0xFF	; 255
+ 1f6:	b9 ef       	ldi	r27, 0xF9	; 249
+ 1f8:	11 97       	sbiw	r26, 0x01	; 1
+ 1fa:	f1 f7       	brne	.-4      	; 0x1f8 <emit_char+0x112>
+ 1fc:	00 c0       	rjmp	.+0      	; 0x1fe <emit_char+0x118>
+ 1fe:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 200:	94 81       	ldd	r25, Z+4	; 0x04
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 202:	2d 9a       	sbi	0x05, 5	; 5
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 204:	91 30       	cpi	r25, 0x01	; 1
+ 206:	09 f4       	brne	.+2      	; 0x20a <emit_char+0x124>
+ 208:	6e c0       	rjmp	.+220    	; 0x2e6 <emit_char+0x200>
+ 20a:	bf ef       	ldi	r27, 0xFF	; 255
+ 20c:	e7 e5       	ldi	r30, 0x57	; 87
+ 20e:	f2 e0       	ldi	r31, 0x02	; 2
+ 210:	b1 50       	subi	r27, 0x01	; 1
+ 212:	e0 40       	sbci	r30, 0x00	; 0
+ 214:	f0 40       	sbci	r31, 0x00	; 0
+ 216:	e1 f7       	brne	.-8      	; 0x210 <emit_char+0x12a>
+ 218:	00 c0       	rjmp	.+0      	; 0x21a <emit_char+0x134>
+ 21a:	00 00       	nop
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+        } else {
+            // long
+            blink_for_ms(DASH_LENGTH * UNIT_TIME);
+ 21c:	2d 98       	cbi	0x05, 5	; 5
+            break;
+        }
+    }
+
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+ 21e:	fa 01       	movw	r30, r20
+ 220:	e2 1b       	sub	r30, r18
+ 222:	f3 0b       	sbc	r31, r19
+ 224:	e0 50       	subi	r30, 0x00	; 0
+ 226:	ff 4f       	sbci	r31, 0xFF	; 255
+ 228:	95 81       	ldd	r25, Z+5	; 0x05
+ 22a:	99 23       	and	r25, r25
+ 22c:	81 f1       	breq	.+96     	; 0x28e <emit_char+0x1a8>
+ 22e:	af ef       	ldi	r26, 0xFF	; 255
+ 230:	b9 ef       	ldi	r27, 0xF9	; 249
+ 232:	11 97       	sbiw	r26, 0x01	; 1
+ 234:	f1 f7       	brne	.-4      	; 0x232 <emit_char+0x14c>
+ 236:	00 c0       	rjmp	.+0      	; 0x238 <emit_char+0x152>
+ 238:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 23a:	95 81       	ldd	r25, Z+5	; 0x05
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 23c:	2d 9a       	sbi	0x05, 5	; 5
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 23e:	91 30       	cpi	r25, 0x01	; 1
+ 240:	d1 f1       	breq	.+116    	; 0x2b6 <emit_char+0x1d0>
+ 242:	bf ef       	ldi	r27, 0xFF	; 255
+ 244:	e7 e5       	ldi	r30, 0x57	; 87
+ 246:	f2 e0       	ldi	r31, 0x02	; 2
+ 248:	b1 50       	subi	r27, 0x01	; 1
+ 24a:	e0 40       	sbci	r30, 0x00	; 0
+ 24c:	f0 40       	sbci	r31, 0x00	; 0
+ 24e:	e1 f7       	brne	.-8      	; 0x248 <emit_char+0x162>
+ 250:	00 c0       	rjmp	.+0      	; 0x252 <emit_char+0x16c>
+ 252:	00 00       	nop
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+        } else {
+            // long
+            blink_for_ms(DASH_LENGTH * UNIT_TIME);
+ 254:	2d 98       	cbi	0x05, 5	; 5
+            break;
+        }
+    }
+
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+ 256:	42 1b       	sub	r20, r18
+ 258:	53 0b       	sbc	r21, r19
+ 25a:	fa 01       	movw	r30, r20
+ 25c:	e0 50       	subi	r30, 0x00	; 0
+ 25e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 260:	96 81       	ldd	r25, Z+6	; 0x06
+ 262:	99 23       	and	r25, r25
+ 264:	a1 f0       	breq	.+40     	; 0x28e <emit_char+0x1a8>
+ 266:	8f ef       	ldi	r24, 0xFF	; 255
+ 268:	99 ef       	ldi	r25, 0xF9	; 249
+ 26a:	01 97       	sbiw	r24, 0x01	; 1
+ 26c:	f1 f7       	brne	.-4      	; 0x26a <emit_char+0x184>
+ 26e:	00 c0       	rjmp	.+0      	; 0x270 <emit_char+0x18a>
+ 270:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 272:	86 81       	ldd	r24, Z+6	; 0x06
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 274:	2d 9a       	sbi	0x05, 5	; 5
+    int j = 1;
+    while (MORSE_TABLE[morse_index][j] != 0) {
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+ 276:	81 30       	cpi	r24, 0x01	; 1
+ 278:	f1 f1       	breq	.+124    	; 0x2f6 <emit_char+0x210>
+ 27a:	bf ef       	ldi	r27, 0xFF	; 255
+ 27c:	e7 e5       	ldi	r30, 0x57	; 87
+ 27e:	f2 e0       	ldi	r31, 0x02	; 2
+ 280:	b1 50       	subi	r27, 0x01	; 1
+ 282:	e0 40       	sbci	r30, 0x00	; 0
+ 284:	f0 40       	sbci	r31, 0x00	; 0
+ 286:	e1 f7       	brne	.-8      	; 0x280 <emit_char+0x19a>
+ 288:	00 c0       	rjmp	.+0      	; 0x28a <emit_char+0x1a4>
+ 28a:	00 00       	nop
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+        } else {
+            // long
+            blink_for_ms(DASH_LENGTH * UNIT_TIME);
+ 28c:	2d 98       	cbi	0x05, 5	; 5
+        }
+        j++;
+    }
+
+    return normalized;
+}
+ 28e:	08 95       	ret
+ 290:	ef ef       	ldi	r30, 0xFF	; 255
+ 292:	f9 ef       	ldi	r31, 0xF9	; 249
+ 294:	31 97       	sbiw	r30, 0x01	; 1
+ 296:	f1 f7       	brne	.-4      	; 0x294 <emit_char+0x1ae>
+ 298:	00 c0       	rjmp	.+0      	; 0x29a <emit_char+0x1b4>
+ 29a:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 29c:	2d 98       	cbi	0x05, 5	; 5
+ 29e:	65 cf       	rjmp	.-310    	; 0x16a <emit_char+0x84>
+ 2a0:	8f ef       	ldi	r24, 0xFF	; 255
+ 2a2:	99 ef       	ldi	r25, 0xF9	; 249
+ 2a4:	01 97       	sbiw	r24, 0x01	; 1
+ 2a6:	f1 f7       	brne	.-4      	; 0x2a4 <emit_char+0x1be>
+ 2a8:	00 c0       	rjmp	.+0      	; 0x2aa <emit_char+0x1c4>
+ 2aa:	00 00       	nop
+{
+    // ignore non alphanumeric characters / emit space
+    if (((c < '0' || c > '9') && (c < 'a' || c > 'z') && (c < 'A' || c > 'Z')) || (c == ' ')) {
+        // emit space
+        _delay_ms(UNIT_TIME * SPACE_BETWEEN_DOTS_AND_DASHES);
+        return ' ';
+ 2ac:	80 e2       	ldi	r24, 0x20	; 32
+ 2ae:	08 95       	ret
+ 2b0:	30 e0       	ldi	r19, 0x00	; 0
+ 2b2:	20 e0       	ldi	r18, 0x00	; 0
+ 2b4:	3c cf       	rjmp	.-392    	; 0x12e <emit_char+0x48>
+ 2b6:	af ef       	ldi	r26, 0xFF	; 255
+ 2b8:	b9 ef       	ldi	r27, 0xF9	; 249
+ 2ba:	11 97       	sbiw	r26, 0x01	; 1
+ 2bc:	f1 f7       	brne	.-4      	; 0x2ba <emit_char+0x1d4>
+ 2be:	00 c0       	rjmp	.+0      	; 0x2c0 <emit_char+0x1da>
+ 2c0:	00 00       	nop
+        if (j != 1) {
+            _delay_ms(SPACE_BETWEEN_DOTS_AND_DASHES * UNIT_TIME);
+        }
+        if (MORSE_TABLE[morse_index][j] == 1) {
+            // short
+            blink_for_ms(DOT_LENGTH * UNIT_TIME);
+ 2c2:	2d 98       	cbi	0x05, 5	; 5
+ 2c4:	c8 cf       	rjmp	.-112    	; 0x256 <emit_char+0x170>
+ 2c6:	af ef       	ldi	r26, 0xFF	; 255
+ 2c8:	b9 ef       	ldi	r27, 0xF9	; 249
+ 2ca:	11 97       	sbiw	r26, 0x01	; 1
+ 2cc:	f1 f7       	brne	.-4      	; 0x2ca <emit_char+0x1e4>
+ 2ce:	00 c0       	rjmp	.+0      	; 0x2d0 <emit_char+0x1ea>
+ 2d0:	00 00       	nop
+ 2d2:	2d 98       	cbi	0x05, 5	; 5
+ 2d4:	68 cf       	rjmp	.-304    	; 0x1a6 <emit_char+0xc0>
+ 2d6:	af ef       	ldi	r26, 0xFF	; 255
+ 2d8:	b9 ef       	ldi	r27, 0xF9	; 249
+ 2da:	11 97       	sbiw	r26, 0x01	; 1
+ 2dc:	f1 f7       	brne	.-4      	; 0x2da <emit_char+0x1f4>
+ 2de:	00 c0       	rjmp	.+0      	; 0x2e0 <emit_char+0x1fa>
+ 2e0:	00 00       	nop
+ 2e2:	2d 98       	cbi	0x05, 5	; 5
+ 2e4:	7e cf       	rjmp	.-260    	; 0x1e2 <emit_char+0xfc>
+ 2e6:	af ef       	ldi	r26, 0xFF	; 255
+ 2e8:	b9 ef       	ldi	r27, 0xF9	; 249
+ 2ea:	11 97       	sbiw	r26, 0x01	; 1
+ 2ec:	f1 f7       	brne	.-4      	; 0x2ea <emit_char+0x204>
+ 2ee:	00 c0       	rjmp	.+0      	; 0x2f0 <emit_char+0x20a>
+ 2f0:	00 00       	nop
+ 2f2:	2d 98       	cbi	0x05, 5	; 5
+ 2f4:	94 cf       	rjmp	.-216    	; 0x21e <emit_char+0x138>
+ 2f6:	af ef       	ldi	r26, 0xFF	; 255
+ 2f8:	b9 ef       	ldi	r27, 0xF9	; 249
+ 2fa:	11 97       	sbiw	r26, 0x01	; 1
+ 2fc:	f1 f7       	brne	.-4      	; 0x2fa <emit_char+0x214>
+ 2fe:	00 c0       	rjmp	.+0      	; 0x300 <emit_char+0x21a>
+ 300:	00 00       	nop
+ 302:	2d 98       	cbi	0x05, 5	; 5
+
+00000304 <scanline_uart>:
+    }
+
+    return normalized;
+}
+
+void scanline_uart(char *buffer, int limit) {
+ 304:	cf 92       	push	r12
+ 306:	df 92       	push	r13
+ 308:	ef 92       	push	r14
+ 30a:	ff 92       	push	r15
+ 30c:	0f 93       	push	r16
+ 30e:	1f 93       	push	r17
+ 310:	cf 93       	push	r28
+ 312:	df 93       	push	r29
+ 314:	ec 01       	movw	r28, r24
+ 316:	8b 01       	movw	r16, r22
+ 318:	01 50       	subi	r16, 0x01	; 1
+ 31a:	11 09       	sbc	r17, r1
+ 31c:	6c 01       	movw	r12, r24
+    int i = 0;
+ 31e:	f1 2c       	mov	r15, r1
+ 320:	e1 2c       	mov	r14, r1
+ 322:	e0 16       	cp	r14, r16
+ 324:	f1 06       	cpc	r15, r17
+ 326:	1c f4       	brge	.+6      	; 0x32e <scanline_uart+0x2a>
+ 328:	16 c0       	rjmp	.+44     	; 0x356 <scanline_uart+0x52>
+    char c;
+    
+    while(1) {
+        c = getchar();
+        if (c == '\r' || c == '\n') {
+ 32a:	8a 30       	cpi	r24, 0x0A	; 10
+ 32c:	41 f0       	breq	.+16     	; 0x33e <scanline_uart+0x3a>
+void scanline_uart(char *buffer, int limit) {
+    int i = 0;
+    char c;
+    
+    while(1) {
+        c = getchar();
+ 32e:	80 91 4c 04 	lds	r24, 0x044C	; 0x80044c <__iob>
+ 332:	90 91 4d 04 	lds	r25, 0x044D	; 0x80044d <__iob+0x1>
+ 336:	0e 94 4a 02 	call	0x494	; 0x494 <fgetc>
+        if (c == '\r' || c == '\n') {
+ 33a:	8d 30       	cpi	r24, 0x0D	; 13
+ 33c:	b1 f7       	brne	.-20     	; 0x32a <scanline_uart+0x26>
+            buffer[i] = '\0';
+ 33e:	ce 0d       	add	r28, r14
+ 340:	df 1d       	adc	r29, r15
+ 342:	18 82       	st	Y, r1
+        if (i < limit - 1) {
+            buffer[i] = c;
+            i++;
+        }
+    }
+}
+ 344:	df 91       	pop	r29
+ 346:	cf 91       	pop	r28
+ 348:	1f 91       	pop	r17
+ 34a:	0f 91       	pop	r16
+ 34c:	ff 90       	pop	r15
+ 34e:	ef 90       	pop	r14
+ 350:	df 90       	pop	r13
+ 352:	cf 90       	pop	r12
+ 354:	08 95       	ret
+void scanline_uart(char *buffer, int limit) {
+    int i = 0;
+    char c;
+    
+    while(1) {
+        c = getchar();
+ 356:	80 91 4c 04 	lds	r24, 0x044C	; 0x80044c <__iob>
+ 35a:	90 91 4d 04 	lds	r25, 0x044D	; 0x80044d <__iob+0x1>
+ 35e:	0e 94 4a 02 	call	0x494	; 0x494 <fgetc>
+        if (c == '\r' || c == '\n') {
+ 362:	8d 30       	cpi	r24, 0x0D	; 13
+ 364:	61 f3       	breq	.-40     	; 0x33e <scanline_uart+0x3a>
+ 366:	8a 30       	cpi	r24, 0x0A	; 10
+ 368:	51 f3       	breq	.-44     	; 0x33e <scanline_uart+0x3a>
+            buffer[i] = '\0';
+            return;
+        }
+        if (i < limit - 1) {
+            buffer[i] = c;
+ 36a:	f6 01       	movw	r30, r12
+ 36c:	81 93       	st	Z+, r24
+ 36e:	6f 01       	movw	r12, r30
+            i++;
+ 370:	ff ef       	ldi	r31, 0xFF	; 255
+ 372:	ef 1a       	sub	r14, r31
+ 374:	ff 0a       	sbc	r15, r31
+ 376:	d5 cf       	rjmp	.-86     	; 0x322 <scanline_uart+0x1e>
+
+00000378 <main>:
+#define BAUD 9600                          // baudrate
+#define UBRR_VALUE ((F_CPU)/16/(BAUD)-1)   // zgodnie ze wzorem
+
+void uart_init()
+{
+    UBRR0 = UBRR_VALUE;
+ 378:	87 e6       	ldi	r24, 0x67	; 103
+ 37a:	90 e0       	ldi	r25, 0x00	; 0
+ 37c:	90 93 c5 00 	sts	0x00C5, r25	; 0x8000c5 <__TEXT_REGION_LENGTH__+0x7f80c5>
+ 380:	80 93 c4 00 	sts	0x00C4, r24	; 0x8000c4 <__TEXT_REGION_LENGTH__+0x7f80c4>
+    UCSR0A = 0;
+ 384:	10 92 c0 00 	sts	0x00C0, r1	; 0x8000c0 <__TEXT_REGION_LENGTH__+0x7f80c0>
+    UCSR0B = _BV(RXEN0) | _BV(TXEN0);
+ 388:	88 e1       	ldi	r24, 0x18	; 24
+ 38a:	80 93 c1 00 	sts	0x00C1, r24	; 0x8000c1 <__TEXT_REGION_LENGTH__+0x7f80c1>
+    UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);
+ 38e:	86 e0       	ldi	r24, 0x06	; 6
+ 390:	80 93 c2 00 	sts	0x00C2, r24	; 0x8000c2 <__TEXT_REGION_LENGTH__+0x7f80c2>
+}
+
+int main()
+{
+    uart_init();
+    fdev_setup_stream(&uart_file, uart_transmit, uart_receive, _FDEV_SETUP_RW);
+ 394:	8e e3       	ldi	r24, 0x3E	; 62
+ 396:	92 e0       	ldi	r25, 0x02	; 2
+ 398:	23 e5       	ldi	r18, 0x53	; 83
+ 39a:	30 e0       	ldi	r19, 0x00	; 0
+ 39c:	30 93 47 02 	sts	0x0247, r19	; 0x800247 <__data_end+0x9>
+ 3a0:	20 93 46 02 	sts	0x0246, r18	; 0x800246 <__data_end+0x8>
+ 3a4:	2c e5       	ldi	r18, 0x5C	; 92
+ 3a6:	30 e0       	ldi	r19, 0x00	; 0
+ 3a8:	30 93 49 02 	sts	0x0249, r19	; 0x800249 <__data_end+0xb>
+ 3ac:	20 93 48 02 	sts	0x0248, r18	; 0x800248 <__data_end+0xa>
+ 3b0:	23 e0       	ldi	r18, 0x03	; 3
+ 3b2:	20 93 41 02 	sts	0x0241, r18	; 0x800241 <__data_end+0x3>
+ 3b6:	10 92 4b 02 	sts	0x024B, r1	; 0x80024b <__data_end+0xd>
+ 3ba:	10 92 4a 02 	sts	0x024A, r1	; 0x80024a <__data_end+0xc>
+    stdin = stdout = stderr = &uart_file;
+ 3be:	90 93 51 04 	sts	0x0451, r25	; 0x800451 <__iob+0x5>
+ 3c2:	80 93 50 04 	sts	0x0450, r24	; 0x800450 <__iob+0x4>
+ 3c6:	90 93 4f 04 	sts	0x044F, r25	; 0x80044f <__iob+0x3>
+ 3ca:	80 93 4e 04 	sts	0x044E, r24	; 0x80044e <__iob+0x2>
+ 3ce:	90 93 4d 04 	sts	0x044D, r25	; 0x80044d <__iob+0x1>
+ 3d2:	80 93 4c 04 	sts	0x044C, r24	; 0x80044c <__iob>
+    printf("Hello world!\r\n");
+ 3d6:	8c ef       	ldi	r24, 0xFC	; 252
+ 3d8:	91 e0       	ldi	r25, 0x01	; 1
+ 3da:	0e 94 8d 02 	call	0x51a	; 0x51a <puts>
+    LED_DDR |= _BV(LED);
+ 3de:	25 9a       	sbi	0x04, 5	; 4
+        }
+    }
+}
+
+int main()
+{
+ 3e0:	0c e4       	ldi	r16, 0x4C	; 76
+ 3e2:	12 e0       	ldi	r17, 0x02	; 2
+ 3e4:	cc e4       	ldi	r28, 0x4C	; 76
+ 3e6:	d2 e0       	ldi	r29, 0x02	; 2
+ 3e8:	ce 01       	movw	r24, r28
+ 3ea:	8c 54       	subi	r24, 0x4C	; 76
+ 3ec:	92 40       	sbci	r25, 0x02	; 2
+ 3ee:	7c 01       	movw	r14, r24
+ 3f0:	94 e0       	ldi	r25, 0x04	; 4
+ 3f2:	cb 34       	cpi	r28, 0x4B	; 75
+ 3f4:	d9 07       	cpc	r29, r25
+ 3f6:	19 f0       	breq	.+6      	; 0x3fe <main+0x86>
+ 3f8:	40 c0       	rjmp	.+128    	; 0x47a <__EEPROM_REGION_LENGTH__+0x7a>
+    int i = 0;
+    char c;
+    
+    while(1) {
+        c = getchar();
+        if (c == '\r' || c == '\n') {
+ 3fa:	8a 30       	cpi	r24, 0x0A	; 10
+ 3fc:	41 f0       	breq	.+16     	; 0x40e <__EEPROM_REGION_LENGTH__+0xe>
+void scanline_uart(char *buffer, int limit) {
+    int i = 0;
+    char c;
+    
+    while(1) {
+        c = getchar();
+ 3fe:	80 91 4c 04 	lds	r24, 0x044C	; 0x80044c <__iob>
+ 402:	90 91 4d 04 	lds	r25, 0x044D	; 0x80044d <__iob+0x1>
+ 406:	0e 94 4a 02 	call	0x494	; 0x494 <fgetc>
+        if (c == '\r' || c == '\n') {
+ 40a:	8d 30       	cpi	r24, 0x0D	; 13
+ 40c:	b1 f7       	brne	.-20     	; 0x3fa <main+0x82>
+            buffer[i] = '\0';
+ 40e:	f7 01       	movw	r30, r14
+ 410:	e4 5b       	subi	r30, 0xB4	; 180
+ 412:	fd 4f       	sbci	r31, 0xFD	; 253
+ 414:	10 82       	st	Z, r1
+    stdin = stdout = stderr = &uart_file;
+    printf("Hello world!\r\n");
+    LED_DDR |= _BV(LED);
+    while(1) {
+        scanline_uart(text, 512);
+        printf("Emitowanie na morsa...\r\n");
+ 416:	8a e0       	ldi	r24, 0x0A	; 10
+ 418:	92 e0       	ldi	r25, 0x02	; 2
+ 41a:	0e 94 8d 02 	call	0x51a	; 0x51a <puts>
+        char *current = text;
+        while (*current != '\0' && (text-current <= 511)) {
+ 41e:	80 91 4c 02 	lds	r24, 0x024C	; 0x80024c <text>
+    printf("Hello world!\r\n");
+    LED_DDR |= _BV(LED);
+    while(1) {
+        scanline_uart(text, 512);
+        printf("Emitowanie na morsa...\r\n");
+        char *current = text;
+ 422:	cc e4       	ldi	r28, 0x4C	; 76
+ 424:	d2 e0       	ldi	r29, 0x02	; 2
+        while (*current != '\0' && (text-current <= 511)) {
+ 426:	88 23       	and	r24, r24
+ 428:	f9 f0       	breq	.+62     	; 0x468 <__EEPROM_REGION_LENGTH__+0x68>
+            if (current != text) {
+                _delay_ms(SPACE_BETWEEN_LETTERS * UNIT_TIME);
+            }
+            char result = emit_char(*current);
+ 42a:	89 91       	ld	r24, Y+
+ 42c:	0e 94 73 00 	call	0xe6	; 0xe6 <emit_char>
+            printf("%c", result);
+ 430:	08 2e       	mov	r0, r24
+ 432:	00 0c       	add	r0, r0
+ 434:	99 0b       	sbc	r25, r25
+ 436:	0e 94 86 02 	call	0x50c	; 0x50c <putchar>
+    LED_DDR |= _BV(LED);
+    while(1) {
+        scanline_uart(text, 512);
+        printf("Emitowanie na morsa...\r\n");
+        char *current = text;
+        while (*current != '\0' && (text-current <= 511)) {
+ 43a:	88 81       	ld	r24, Y
+ 43c:	88 23       	and	r24, r24
+ 43e:	a1 f0       	breq	.+40     	; 0x468 <__EEPROM_REGION_LENGTH__+0x68>
+ 440:	c8 01       	movw	r24, r16
+ 442:	8c 1b       	sub	r24, r28
+ 444:	9d 0b       	sbc	r25, r29
+ 446:	81 15       	cp	r24, r1
+ 448:	92 40       	sbci	r25, 0x02	; 2
+ 44a:	74 f4       	brge	.+28     	; 0x468 <__EEPROM_REGION_LENGTH__+0x68>
+            if (current != text) {
+ 44c:	22 e0       	ldi	r18, 0x02	; 2
+ 44e:	cc 34       	cpi	r28, 0x4C	; 76
+ 450:	d2 07       	cpc	r29, r18
+ 452:	59 f3       	breq	.-42     	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+ 454:	8f ef       	ldi	r24, 0xFF	; 255
+ 456:	97 e5       	ldi	r25, 0x57	; 87
+ 458:	22 e0       	ldi	r18, 0x02	; 2
+ 45a:	81 50       	subi	r24, 0x01	; 1
+ 45c:	90 40       	sbci	r25, 0x00	; 0
+ 45e:	20 40       	sbci	r18, 0x00	; 0
+ 460:	e1 f7       	brne	.-8      	; 0x45a <__EEPROM_REGION_LENGTH__+0x5a>
+ 462:	00 c0       	rjmp	.+0      	; 0x464 <__EEPROM_REGION_LENGTH__+0x64>
+ 464:	00 00       	nop
+ 466:	e1 cf       	rjmp	.-62     	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
+            }
+            char result = emit_char(*current);
+            printf("%c", result);
+            current++;
+        }
+        printf("\r\n");
+ 468:	88 e0       	ldi	r24, 0x08	; 8
+ 46a:	92 e0       	ldi	r25, 0x02	; 2
+ 46c:	0e 94 8d 02 	call	0x51a	; 0x51a <puts>
+        printf("Zakończono emisje morsa.\r\n");
+ 470:	82 e2       	ldi	r24, 0x22	; 34
+ 472:	92 e0       	ldi	r25, 0x02	; 2
+ 474:	0e 94 8d 02 	call	0x51a	; 0x51a <puts>
+    uart_init();
+    fdev_setup_stream(&uart_file, uart_transmit, uart_receive, _FDEV_SETUP_RW);
+    stdin = stdout = stderr = &uart_file;
+    printf("Hello world!\r\n");
+    LED_DDR |= _BV(LED);
+    while(1) {
+ 478:	b5 cf       	rjmp	.-150    	; 0x3e4 <main+0x6c>
+void scanline_uart(char *buffer, int limit) {
+    int i = 0;
+    char c;
+    
+    while(1) {
+        c = getchar();
+ 47a:	80 91 4c 04 	lds	r24, 0x044C	; 0x80044c <__iob>
+ 47e:	90 91 4d 04 	lds	r25, 0x044D	; 0x80044d <__iob+0x1>
+ 482:	0e 94 4a 02 	call	0x494	; 0x494 <fgetc>
+        if (c == '\r' || c == '\n') {
+ 486:	8d 30       	cpi	r24, 0x0D	; 13
+ 488:	11 f2       	breq	.-124    	; 0x40e <__EEPROM_REGION_LENGTH__+0xe>
+ 48a:	8a 30       	cpi	r24, 0x0A	; 10
+ 48c:	09 f4       	brne	.+2      	; 0x490 <__EEPROM_REGION_LENGTH__+0x90>
+ 48e:	bf cf       	rjmp	.-130    	; 0x40e <__EEPROM_REGION_LENGTH__+0xe>
+            buffer[i] = '\0';
+            return;
+        }
+        if (i < limit - 1) {
+            buffer[i] = c;
+ 490:	89 93       	st	Y+, r24
+ 492:	aa cf       	rjmp	.-172    	; 0x3e8 <main+0x70>
+
+00000494 <fgetc>:
+ 494:	cf 93       	push	r28
+ 496:	df 93       	push	r29
+ 498:	ec 01       	movw	r28, r24
+ 49a:	2b 81       	ldd	r18, Y+3	; 0x03
+ 49c:	20 ff       	sbrs	r18, 0
+ 49e:	1a c0       	rjmp	.+52     	; 0x4d4 <fgetc+0x40>
+ 4a0:	26 ff       	sbrs	r18, 6
+ 4a2:	0c c0       	rjmp	.+24     	; 0x4bc <fgetc+0x28>
+ 4a4:	2f 7b       	andi	r18, 0xBF	; 191
+ 4a6:	2b 83       	std	Y+3, r18	; 0x03
+ 4a8:	8e 81       	ldd	r24, Y+6	; 0x06
+ 4aa:	9f 81       	ldd	r25, Y+7	; 0x07
+ 4ac:	01 96       	adiw	r24, 0x01	; 1
+ 4ae:	9f 83       	std	Y+7, r25	; 0x07
+ 4b0:	8e 83       	std	Y+6, r24	; 0x06
+ 4b2:	8a 81       	ldd	r24, Y+2	; 0x02
+ 4b4:	90 e0       	ldi	r25, 0x00	; 0
+ 4b6:	df 91       	pop	r29
+ 4b8:	cf 91       	pop	r28
+ 4ba:	08 95       	ret
+ 4bc:	22 ff       	sbrs	r18, 2
+ 4be:	18 c0       	rjmp	.+48     	; 0x4f0 <fgetc+0x5c>
+ 4c0:	e8 81       	ld	r30, Y
+ 4c2:	f9 81       	ldd	r31, Y+1	; 0x01
+ 4c4:	80 81       	ld	r24, Z
+ 4c6:	08 2e       	mov	r0, r24
+ 4c8:	00 0c       	add	r0, r0
+ 4ca:	99 0b       	sbc	r25, r25
+ 4cc:	00 97       	sbiw	r24, 0x00	; 0
+ 4ce:	29 f4       	brne	.+10     	; 0x4da <fgetc+0x46>
+ 4d0:	20 62       	ori	r18, 0x20	; 32
+ 4d2:	2b 83       	std	Y+3, r18	; 0x03
+ 4d4:	8f ef       	ldi	r24, 0xFF	; 255
+ 4d6:	9f ef       	ldi	r25, 0xFF	; 255
+ 4d8:	ee cf       	rjmp	.-36     	; 0x4b6 <fgetc+0x22>
+ 4da:	31 96       	adiw	r30, 0x01	; 1
+ 4dc:	f9 83       	std	Y+1, r31	; 0x01
+ 4de:	e8 83       	st	Y, r30
+ 4e0:	2e 81       	ldd	r18, Y+6	; 0x06
+ 4e2:	3f 81       	ldd	r19, Y+7	; 0x07
+ 4e4:	2f 5f       	subi	r18, 0xFF	; 255
+ 4e6:	3f 4f       	sbci	r19, 0xFF	; 255
+ 4e8:	3f 83       	std	Y+7, r19	; 0x07
+ 4ea:	2e 83       	std	Y+6, r18	; 0x06
+ 4ec:	99 27       	eor	r25, r25
+ 4ee:	e3 cf       	rjmp	.-58     	; 0x4b6 <fgetc+0x22>
+ 4f0:	ea 85       	ldd	r30, Y+10	; 0x0a
+ 4f2:	fb 85       	ldd	r31, Y+11	; 0x0b
+ 4f4:	09 95       	icall
+ 4f6:	97 ff       	sbrs	r25, 7
+ 4f8:	f3 cf       	rjmp	.-26     	; 0x4e0 <fgetc+0x4c>
+ 4fa:	2b 81       	ldd	r18, Y+3	; 0x03
+ 4fc:	01 96       	adiw	r24, 0x01	; 1
+ 4fe:	21 f0       	breq	.+8      	; 0x508 <fgetc+0x74>
+ 500:	80 e2       	ldi	r24, 0x20	; 32
+ 502:	82 2b       	or	r24, r18
+ 504:	8b 83       	std	Y+3, r24	; 0x03
+ 506:	e6 cf       	rjmp	.-52     	; 0x4d4 <fgetc+0x40>
+ 508:	80 e1       	ldi	r24, 0x10	; 16
+ 50a:	fb cf       	rjmp	.-10     	; 0x502 <fgetc+0x6e>
+
+0000050c <putchar>:
+ 50c:	60 91 4e 04 	lds	r22, 0x044E	; 0x80044e <__iob+0x2>
+ 510:	70 91 4f 04 	lds	r23, 0x044F	; 0x80044f <__iob+0x3>
+ 514:	0e 94 b8 02 	call	0x570	; 0x570 <fputc>
+ 518:	08 95       	ret
+
+0000051a <puts>:
+ 51a:	0f 93       	push	r16
+ 51c:	1f 93       	push	r17
+ 51e:	cf 93       	push	r28
+ 520:	df 93       	push	r29
+ 522:	e0 91 4e 04 	lds	r30, 0x044E	; 0x80044e <__iob+0x2>
+ 526:	f0 91 4f 04 	lds	r31, 0x044F	; 0x80044f <__iob+0x3>
+ 52a:	23 81       	ldd	r18, Z+3	; 0x03
+ 52c:	ec 01       	movw	r28, r24
+ 52e:	10 e0       	ldi	r17, 0x00	; 0
+ 530:	00 e0       	ldi	r16, 0x00	; 0
+ 532:	21 fd       	sbrc	r18, 1
+ 534:	08 c0       	rjmp	.+16     	; 0x546 <puts+0x2c>
+ 536:	0f ef       	ldi	r16, 0xFF	; 255
+ 538:	1f ef       	ldi	r17, 0xFF	; 255
+ 53a:	14 c0       	rjmp	.+40     	; 0x564 <puts+0x4a>
+ 53c:	09 95       	icall
+ 53e:	89 2b       	or	r24, r25
+ 540:	11 f0       	breq	.+4      	; 0x546 <puts+0x2c>
+ 542:	0f ef       	ldi	r16, 0xFF	; 255
+ 544:	1f ef       	ldi	r17, 0xFF	; 255
+ 546:	89 91       	ld	r24, Y+
+ 548:	60 91 4e 04 	lds	r22, 0x044E	; 0x80044e <__iob+0x2>
+ 54c:	70 91 4f 04 	lds	r23, 0x044F	; 0x80044f <__iob+0x3>
+ 550:	db 01       	movw	r26, r22
+ 552:	18 96       	adiw	r26, 0x08	; 8
+ 554:	ed 91       	ld	r30, X+
+ 556:	fc 91       	ld	r31, X
+ 558:	81 11       	cpse	r24, r1
+ 55a:	f0 cf       	rjmp	.-32     	; 0x53c <puts+0x22>
+ 55c:	8a e0       	ldi	r24, 0x0A	; 10
+ 55e:	09 95       	icall
+ 560:	89 2b       	or	r24, r25
+ 562:	49 f7       	brne	.-46     	; 0x536 <puts+0x1c>
+ 564:	c8 01       	movw	r24, r16
+ 566:	df 91       	pop	r29
+ 568:	cf 91       	pop	r28
+ 56a:	1f 91       	pop	r17
+ 56c:	0f 91       	pop	r16
+ 56e:	08 95       	ret
+
+00000570 <fputc>:
+ 570:	0f 93       	push	r16
+ 572:	1f 93       	push	r17
+ 574:	cf 93       	push	r28
+ 576:	df 93       	push	r29
+ 578:	18 2f       	mov	r17, r24
+ 57a:	09 2f       	mov	r16, r25
+ 57c:	eb 01       	movw	r28, r22
+ 57e:	8b 81       	ldd	r24, Y+3	; 0x03
+ 580:	81 fd       	sbrc	r24, 1
+ 582:	09 c0       	rjmp	.+18     	; 0x596 <fputc+0x26>
+ 584:	1f ef       	ldi	r17, 0xFF	; 255
+ 586:	0f ef       	ldi	r16, 0xFF	; 255
+ 588:	81 2f       	mov	r24, r17
+ 58a:	90 2f       	mov	r25, r16
+ 58c:	df 91       	pop	r29
+ 58e:	cf 91       	pop	r28
+ 590:	1f 91       	pop	r17
+ 592:	0f 91       	pop	r16
+ 594:	08 95       	ret
+ 596:	82 ff       	sbrs	r24, 2
+ 598:	14 c0       	rjmp	.+40     	; 0x5c2 <fputc+0x52>
+ 59a:	2e 81       	ldd	r18, Y+6	; 0x06
+ 59c:	3f 81       	ldd	r19, Y+7	; 0x07
+ 59e:	8c 81       	ldd	r24, Y+4	; 0x04
+ 5a0:	9d 81       	ldd	r25, Y+5	; 0x05
+ 5a2:	28 17       	cp	r18, r24
+ 5a4:	39 07       	cpc	r19, r25
+ 5a6:	3c f4       	brge	.+14     	; 0x5b6 <fputc+0x46>
+ 5a8:	e8 81       	ld	r30, Y
+ 5aa:	f9 81       	ldd	r31, Y+1	; 0x01
+ 5ac:	cf 01       	movw	r24, r30
+ 5ae:	01 96       	adiw	r24, 0x01	; 1
+ 5b0:	99 83       	std	Y+1, r25	; 0x01
+ 5b2:	88 83       	st	Y, r24
+ 5b4:	10 83       	st	Z, r17
+ 5b6:	8e 81       	ldd	r24, Y+6	; 0x06
+ 5b8:	9f 81       	ldd	r25, Y+7	; 0x07
+ 5ba:	01 96       	adiw	r24, 0x01	; 1
+ 5bc:	9f 83       	std	Y+7, r25	; 0x07
+ 5be:	8e 83       	std	Y+6, r24	; 0x06
+ 5c0:	e3 cf       	rjmp	.-58     	; 0x588 <fputc+0x18>
+ 5c2:	e8 85       	ldd	r30, Y+8	; 0x08
+ 5c4:	f9 85       	ldd	r31, Y+9	; 0x09
+ 5c6:	81 2f       	mov	r24, r17
+ 5c8:	09 95       	icall
+ 5ca:	89 2b       	or	r24, r25
+ 5cc:	a1 f3       	breq	.-24     	; 0x5b6 <fputc+0x46>
+ 5ce:	da cf       	rjmp	.-76     	; 0x584 <fputc+0x14>
+
+000005d0 <_exit>:
+ 5d0:	f8 94       	cli
+
+000005d2 <__stop_program>:
+ 5d2:	ff cf       	rjmp	.-2      	; 0x5d2 <__stop_program>
