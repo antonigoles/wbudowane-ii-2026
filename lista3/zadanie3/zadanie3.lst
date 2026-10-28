@@ -1,0 +1,600 @@
+
+zadanie3.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000042  00800100  000002f0  00000384  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000002f0  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000000e  00800142  00800142  000003c6  2**0
+                  ALLOC
+  3 .stab         00000a20  00000000  00000000  000003c8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000f34  00000000  00000000  00000de8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .comment      00000011  00000000  00000000  00001d1c  2**0
+                  CONTENTS, READONLY
+  6 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001d30  2**2
+                  CONTENTS, READONLY
+  7 .debug_info   000005f4  00000000  00000000  00001d70  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 000005a2  00000000  00000000  00002364  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   0000001a  00000000  00000000  00002906  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000208  00000000  00000000  00002920  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e0 ef       	ldi	r30, 0xF0	; 240
+  7c:	f2 e0       	ldi	r31, 0x02	; 2
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 34       	cpi	r26, 0x42	; 66
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	a2 e4       	ldi	r26, 0x42	; 66
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a0 35       	cpi	r26, 0x50	; 80
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 ad 00 	call	0x15a	; 0x15a <main>
+  9e:	0c 94 76 01 	jmp	0x2ec	; 0x2ec <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <adc_init>:
+#define LED_PORT PORTD
+
+// inicjalizacja ADC
+void adc_init()
+{
+  ADMUX   = _BV(REFS0); // referencja AVcc, wejście ADC0
+  a6:	80 e4       	ldi	r24, 0x40	; 64
+  a8:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+  DIDR0   = _BV(ADC0D); // wyłącz wejście cyfrowe na ADC0
+  ac:	81 e0       	ldi	r24, 0x01	; 1
+  ae:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+  // częstotliwość zegara ADC 125 kHz (16 MHz / 128)
+  ADCSRA  = _BV(ADPS0) | _BV(ADPS1) | _BV(ADPS2); // preskaler 128
+  b2:	ea e7       	ldi	r30, 0x7A	; 122
+  b4:	f0 e0       	ldi	r31, 0x00	; 0
+  b6:	87 e0       	ldi	r24, 0x07	; 7
+  b8:	80 83       	st	Z, r24
+  ADCSRA |= _BV(ADEN); // włącz ADC
+  ba:	80 81       	ld	r24, Z
+  bc:	80 68       	ori	r24, 0x80	; 128
+  be:	80 83       	st	Z, r24
+}
+  c0:	08 95       	ret
+
+000000c2 <get_led_pwm>:
+     735,  819,  909, 1005, 1010, 1015, 1019, 1022,
+    1024
+};
+
+uint16_t get_led_pwm(uint16_t brightness) {
+    if (brightness == 0) return 0;
+  c2:	00 97       	sbiw	r24, 0x00	; 0
+  c4:	d1 f1       	breq	.+116    	; 0x13a <get_led_pwm+0x78>
+    if (brightness >= 1024) return 1024;
+  c6:	81 15       	cp	r24, r1
+  c8:	24 e0       	ldi	r18, 0x04	; 4
+  ca:	92 07       	cpc	r25, r18
+  cc:	c8 f5       	brcc	.+114    	; 0x140 <get_led_pwm+0x7e>
+
+    uint32_t idx  = brightness >> 5;
+  ce:	9c 01       	movw	r18, r24
+  d0:	36 95       	lsr	r19
+  d2:	27 95       	ror	r18
+  d4:	32 95       	swap	r19
+  d6:	22 95       	swap	r18
+  d8:	2f 70       	andi	r18, 0x0F	; 15
+  da:	23 27       	eor	r18, r19
+  dc:	3f 70       	andi	r19, 0x0F	; 15
+  de:	23 27       	eor	r18, r19
+  e0:	a9 01       	movw	r20, r18
+  e2:	70 e0       	ldi	r23, 0x00	; 0
+  e4:	60 e0       	ldi	r22, 0x00	; 0
+    uint32_t frac = brightness & 31;
+
+    uint32_t y0 = led_curve[idx];
+  e6:	22 0f       	add	r18, r18
+  e8:	33 1f       	adc	r19, r19
+  ea:	f9 01       	movw	r30, r18
+  ec:	e0 50       	subi	r30, 0x00	; 0
+  ee:	ff 4f       	sbci	r31, 0xFF	; 255
+  f0:	01 90       	ld	r0, Z+
+  f2:	f0 81       	ld	r31, Z
+  f4:	e0 2d       	mov	r30, r0
+    uint32_t y1 = led_curve[idx + 1];
+  f6:	4f 5f       	subi	r20, 0xFF	; 255
+  f8:	5f 4f       	sbci	r21, 0xFF	; 255
+  fa:	6f 4f       	sbci	r22, 0xFF	; 255
+  fc:	7f 4f       	sbci	r23, 0xFF	; 255
+  fe:	44 0f       	add	r20, r20
+ 100:	55 1f       	adc	r21, r21
+ 102:	40 50       	subi	r20, 0x00	; 0
+ 104:	5f 4f       	sbci	r21, 0xFF	; 255
+ 106:	da 01       	movw	r26, r20
+ 108:	2d 91       	ld	r18, X+
+ 10a:	3c 91       	ld	r19, X
+ 10c:	50 e0       	ldi	r21, 0x00	; 0
+ 10e:	40 e0       	ldi	r20, 0x00	; 0
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+ 110:	2e 1b       	sub	r18, r30
+ 112:	3f 0b       	sbc	r19, r31
+ 114:	41 09       	sbc	r20, r1
+ 116:	51 09       	sbc	r21, r1
+uint16_t get_led_pwm(uint16_t brightness) {
+    if (brightness == 0) return 0;
+    if (brightness >= 1024) return 1024;
+
+    uint32_t idx  = brightness >> 5;
+    uint32_t frac = brightness & 31;
+ 118:	dc 01       	movw	r26, r24
+ 11a:	af 71       	andi	r26, 0x1F	; 31
+ 11c:	bb 27       	eor	r27, r27
+
+    uint32_t y0 = led_curve[idx];
+    uint32_t y1 = led_curve[idx + 1];
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+ 11e:	0e 94 6b 01 	call	0x2d6	; 0x2d6 <__muluhisi3>
+ 122:	dc 01       	movw	r26, r24
+ 124:	cb 01       	movw	r24, r22
+ 126:	25 e0       	ldi	r18, 0x05	; 5
+ 128:	b6 95       	lsr	r27
+ 12a:	a7 95       	ror	r26
+ 12c:	97 95       	ror	r25
+ 12e:	87 95       	ror	r24
+ 130:	2a 95       	dec	r18
+ 132:	d1 f7       	brne	.-12     	; 0x128 <get_led_pwm+0x66>
+ 134:	8e 0f       	add	r24, r30
+ 136:	9f 1f       	adc	r25, r31
+ 138:	08 95       	ret
+     735,  819,  909, 1005, 1010, 1015, 1019, 1022,
+    1024
+};
+
+uint16_t get_led_pwm(uint16_t brightness) {
+    if (brightness == 0) return 0;
+ 13a:	90 e0       	ldi	r25, 0x00	; 0
+ 13c:	80 e0       	ldi	r24, 0x00	; 0
+ 13e:	08 95       	ret
+    if (brightness >= 1024) return 1024;
+ 140:	80 e0       	ldi	r24, 0x00	; 0
+ 142:	94 e0       	ldi	r25, 0x04	; 4
+
+    uint32_t y0 = led_curve[idx];
+    uint32_t y1 = led_curve[idx + 1];
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+}
+ 144:	08 95       	ret
+
+00000146 <start_adc_read>:
+}
+
+FILE uart_file;
+
+void start_adc_read() {
+    ADCSRA |= _BV(ADSC);
+ 146:	ea e7       	ldi	r30, 0x7A	; 122
+ 148:	f0 e0       	ldi	r31, 0x00	; 0
+ 14a:	80 81       	ld	r24, Z
+ 14c:	80 64       	ori	r24, 0x40	; 64
+ 14e:	80 83       	st	Z, r24
+}
+ 150:	08 95       	ret
+
+00000152 <check_if_read_is_running>:
+
+uint8_t check_if_read_is_running() {
+    return (ADCSRA & _BV(ADSC));
+ 152:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+}
+ 156:	80 74       	andi	r24, 0x40	; 64
+ 158:	08 95       	ret
+
+0000015a <main>:
+
+int main()
+{
+    LED_DDR |= _BV(LED);
+ 15a:	56 9a       	sbi	0x0a, 6	; 10
+    LED_PORT = 0;
+ 15c:	1b b8       	out	0x0b, r1	; 11
+#define LED_PORT PORTD
+
+// inicjalizacja ADC
+void adc_init()
+{
+  ADMUX   = _BV(REFS0); // referencja AVcc, wejście ADC0
+ 15e:	80 e4       	ldi	r24, 0x40	; 64
+ 160:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+  DIDR0   = _BV(ADC0D); // wyłącz wejście cyfrowe na ADC0
+ 164:	81 e0       	ldi	r24, 0x01	; 1
+ 166:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+  // częstotliwość zegara ADC 125 kHz (16 MHz / 128)
+  ADCSRA  = _BV(ADPS0) | _BV(ADPS1) | _BV(ADPS2); // preskaler 128
+ 16a:	87 e0       	ldi	r24, 0x07	; 7
+ 16c:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  ADCSRA |= _BV(ADEN); // włącz ADC
+ 170:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 174:	80 68       	ori	r24, 0x80	; 128
+ 176:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+}
+
+FILE uart_file;
+
+void start_adc_read() {
+    ADCSRA |= _BV(ADSC);
+ 17a:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 17e:	80 64       	ori	r24, 0x40	; 64
+ 180:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+    LED_DDR |= _BV(LED);
+    LED_PORT = 0;
+    adc_init();
+    
+    start_adc_read(); // first read
+    uint16_t led_strength = 0;
+ 184:	f0 e0       	ldi	r31, 0x00	; 0
+ 186:	e0 e0       	ldi	r30, 0x00	; 0
+    uint32_t total_tick = 1000000 / (FREQ);
+    uint32_t time_on = (total_tick * scaled_strength) >> 10;
+    uint32_t time_off = total_tick - time_on;
+
+    stupid_delay_us(time_off);
+    LED_PORT |= _BV(LED);
+ 188:	cc e4       	ldi	r28, 0x4C	; 76
+ 18a:	cc 2e       	mov	r12, r28
+ 18c:	dd 24       	eor	r13, r13
+ 18e:	d3 94       	inc	r13
+ 190:	e1 2c       	mov	r14, r1
+ 192:	f1 2c       	mov	r15, r1
+void start_adc_read() {
+    ADCSRA |= _BV(ADSC);
+}
+
+uint8_t check_if_read_is_running() {
+    return (ADCSRA & _BV(ADSC));
+ 194:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+    start_adc_read(); // first read
+    uint16_t led_strength = 0;
+
+    // mierz napięcie
+    while(1) {
+        if (!check_if_read_is_running()) {
+ 198:	86 fd       	sbrc	r24, 6
+ 19a:	09 c0       	rjmp	.+18     	; 0x1ae <main+0x54>
+            led_strength = ADC;
+ 19c:	e0 91 78 00 	lds	r30, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7f8078>
+ 1a0:	f0 91 79 00 	lds	r31, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+}
+
+FILE uart_file;
+
+void start_adc_read() {
+    ADCSRA |= _BV(ADSC);
+ 1a4:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 1a8:	80 64       	ori	r24, 0x40	; 64
+ 1aa:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+     735,  819,  909, 1005, 1010, 1015, 1019, 1022,
+    1024
+};
+
+uint16_t get_led_pwm(uint16_t brightness) {
+    if (brightness == 0) return 0;
+ 1ae:	30 97       	sbiw	r30, 0x00	; 0
+ 1b0:	09 f4       	brne	.+2      	; 0x1b4 <main+0x5a>
+ 1b2:	71 c0       	rjmp	.+226    	; 0x296 <main+0x13c>
+    if (brightness >= 1024) return 1024;
+ 1b4:	e1 15       	cp	r30, r1
+ 1b6:	24 e0       	ldi	r18, 0x04	; 4
+ 1b8:	f2 07       	cpc	r31, r18
+ 1ba:	08 f0       	brcs	.+2      	; 0x1be <main+0x64>
+ 1bc:	77 c0       	rjmp	.+238    	; 0x2ac <main+0x152>
+
+    uint32_t idx  = brightness >> 5;
+ 1be:	9f 01       	movw	r18, r30
+ 1c0:	36 95       	lsr	r19
+ 1c2:	27 95       	ror	r18
+ 1c4:	32 95       	swap	r19
+ 1c6:	22 95       	swap	r18
+ 1c8:	2f 70       	andi	r18, 0x0F	; 15
+ 1ca:	23 27       	eor	r18, r19
+ 1cc:	3f 70       	andi	r19, 0x0F	; 15
+ 1ce:	23 27       	eor	r18, r19
+ 1d0:	c9 01       	movw	r24, r18
+ 1d2:	b0 e0       	ldi	r27, 0x00	; 0
+ 1d4:	a0 e0       	ldi	r26, 0x00	; 0
+    uint32_t frac = brightness & 31;
+
+    uint32_t y0 = led_curve[idx];
+ 1d6:	22 0f       	add	r18, r18
+ 1d8:	33 1f       	adc	r19, r19
+ 1da:	e9 01       	movw	r28, r18
+ 1dc:	c0 50       	subi	r28, 0x00	; 0
+ 1de:	df 4f       	sbci	r29, 0xFF	; 255
+ 1e0:	08 81       	ld	r16, Y
+ 1e2:	19 81       	ldd	r17, Y+1	; 0x01
+    uint32_t y1 = led_curve[idx + 1];
+ 1e4:	01 96       	adiw	r24, 0x01	; 1
+ 1e6:	a1 1d       	adc	r26, r1
+ 1e8:	b1 1d       	adc	r27, r1
+ 1ea:	88 0f       	add	r24, r24
+ 1ec:	99 1f       	adc	r25, r25
+ 1ee:	80 50       	subi	r24, 0x00	; 0
+ 1f0:	9f 4f       	sbci	r25, 0xFF	; 255
+ 1f2:	dc 01       	movw	r26, r24
+ 1f4:	2d 91       	ld	r18, X+
+ 1f6:	3c 91       	ld	r19, X
+ 1f8:	50 e0       	ldi	r21, 0x00	; 0
+ 1fa:	40 e0       	ldi	r20, 0x00	; 0
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+ 1fc:	20 1b       	sub	r18, r16
+ 1fe:	31 0b       	sbc	r19, r17
+ 200:	41 09       	sbc	r20, r1
+ 202:	51 09       	sbc	r21, r1
+uint16_t get_led_pwm(uint16_t brightness) {
+    if (brightness == 0) return 0;
+    if (brightness >= 1024) return 1024;
+
+    uint32_t idx  = brightness >> 5;
+    uint32_t frac = brightness & 31;
+ 204:	df 01       	movw	r26, r30
+ 206:	af 71       	andi	r26, 0x1F	; 31
+ 208:	bb 27       	eor	r27, r27
+
+    uint32_t y0 = led_curve[idx];
+    uint32_t y1 = led_curve[idx + 1];
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+ 20a:	0e 94 6b 01 	call	0x2d6	; 0x2d6 <__muluhisi3>
+ 20e:	a5 e0       	ldi	r26, 0x05	; 5
+ 210:	96 95       	lsr	r25
+ 212:	87 95       	ror	r24
+ 214:	77 95       	ror	r23
+ 216:	67 95       	ror	r22
+ 218:	aa 95       	dec	r26
+ 21a:	d1 f7       	brne	.-12     	; 0x210 <main+0xb6>
+ 21c:	98 01       	movw	r18, r16
+ 21e:	26 0f       	add	r18, r22
+ 220:	37 1f       	adc	r19, r23
+    const uint32_t FREQ = 3000;
+
+    // scaling trzeba zaczac jakos od 900
+    uint32_t scaled_strength = get_led_pwm(strength);
+    uint32_t total_tick = 1000000 / (FREQ);
+    uint32_t time_on = (total_tick * scaled_strength) >> 10;
+ 222:	ad e4       	ldi	r26, 0x4D	; 77
+ 224:	b1 e0       	ldi	r27, 0x01	; 1
+ 226:	0e 94 5c 01 	call	0x2b8	; 0x2b8 <__umulhisi3>
+ 22a:	8b 01       	movw	r16, r22
+ 22c:	9c 01       	movw	r18, r24
+ 22e:	ba e0       	ldi	r27, 0x0A	; 10
+ 230:	36 95       	lsr	r19
+ 232:	27 95       	ror	r18
+ 234:	17 95       	ror	r17
+ 236:	07 95       	ror	r16
+ 238:	ba 95       	dec	r27
+ 23a:	d1 f7       	brne	.-12     	; 0x230 <main+0xd6>
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+}
+
+inline static void stupid_delay_us(uint32_t us) {
+    while (us--) {
+ 23c:	d7 01       	movw	r26, r14
+ 23e:	c6 01       	movw	r24, r12
+ 240:	80 1b       	sub	r24, r16
+ 242:	91 0b       	sbc	r25, r17
+ 244:	a2 0b       	sbc	r26, r18
+ 246:	b3 0b       	sbc	r27, r19
+ 248:	b9 01       	movw	r22, r18
+ 24a:	a8 01       	movw	r20, r16
+ 24c:	41 50       	subi	r20, 0x01	; 1
+ 24e:	51 09       	sbc	r21, r1
+ 250:	61 09       	sbc	r22, r1
+ 252:	71 09       	sbc	r23, r1
+ 254:	0d 34       	cpi	r16, 0x4D	; 77
+ 256:	c1 e0       	ldi	r28, 0x01	; 1
+ 258:	1c 07       	cpc	r17, r28
+ 25a:	21 05       	cpc	r18, r1
+ 25c:	31 05       	cpc	r19, r1
+ 25e:	31 f1       	breq	.+76     	; 0x2ac <main+0x152>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 260:	c5 e3       	ldi	r28, 0x35	; 53
+ 262:	ca 95       	dec	r28
+ 264:	f1 f7       	brne	.-4      	; 0x262 <main+0x108>
+ 266:	00 00       	nop
+ 268:	01 97       	sbiw	r24, 0x01	; 1
+ 26a:	a1 09       	sbc	r26, r1
+ 26c:	b1 09       	sbc	r27, r1
+ 26e:	c0 f7       	brcc	.-16     	; 0x260 <main+0x106>
+    uint32_t total_tick = 1000000 / (FREQ);
+    uint32_t time_on = (total_tick * scaled_strength) >> 10;
+    uint32_t time_off = total_tick - time_on;
+
+    stupid_delay_us(time_off);
+    LED_PORT |= _BV(LED);
+ 270:	5e 9a       	sbi	0x0b, 6	; 11
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+}
+
+inline static void stupid_delay_us(uint32_t us) {
+    while (us--) {
+ 272:	01 2b       	or	r16, r17
+ 274:	02 2b       	or	r16, r18
+ 276:	03 2b       	or	r16, r19
+ 278:	61 f0       	breq	.+24     	; 0x292 <main+0x138>
+ 27a:	4f 5f       	subi	r20, 0xFF	; 255
+ 27c:	5f 4f       	sbci	r21, 0xFF	; 255
+    uint32_t total_tick = 1000000 / (FREQ);
+    uint32_t time_on = (total_tick * scaled_strength) >> 10;
+    uint32_t time_off = total_tick - time_on;
+
+    stupid_delay_us(time_off);
+    LED_PORT |= _BV(LED);
+ 27e:	90 e0       	ldi	r25, 0x00	; 0
+ 280:	80 e0       	ldi	r24, 0x00	; 0
+ 282:	25 e3       	ldi	r18, 0x35	; 53
+ 284:	2a 95       	dec	r18
+ 286:	f1 f7       	brne	.-4      	; 0x284 <main+0x12a>
+ 288:	00 00       	nop
+ 28a:	01 96       	adiw	r24, 0x01	; 1
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+}
+
+inline static void stupid_delay_us(uint32_t us) {
+    while (us--) {
+ 28c:	84 17       	cp	r24, r20
+ 28e:	95 07       	cpc	r25, r21
+ 290:	c1 f7       	brne	.-16     	; 0x282 <main+0x128>
+    uint32_t time_off = total_tick - time_on;
+
+    stupid_delay_us(time_off);
+    LED_PORT |= _BV(LED);
+    stupid_delay_us(time_on);
+    LED_PORT &= ~_BV(LED);
+ 292:	5e 98       	cbi	0x0b, 6	; 11
+ 294:	7f cf       	rjmp	.-258    	; 0x194 <main+0x3a>
+     735,  819,  909, 1005, 1010, 1015, 1019, 1022,
+    1024
+};
+
+uint16_t get_led_pwm(uint16_t brightness) {
+    if (brightness == 0) return 0;
+ 296:	4f ef       	ldi	r20, 0xFF	; 255
+ 298:	5f ef       	ldi	r21, 0xFF	; 255
+ 29a:	ba 01       	movw	r22, r20
+    const uint32_t FREQ = 3000;
+
+    // scaling trzeba zaczac jakos od 900
+    uint32_t scaled_strength = get_led_pwm(strength);
+    uint32_t total_tick = 1000000 / (FREQ);
+    uint32_t time_on = (total_tick * scaled_strength) >> 10;
+ 29c:	00 e0       	ldi	r16, 0x00	; 0
+ 29e:	10 e0       	ldi	r17, 0x00	; 0
+ 2a0:	98 01       	movw	r18, r16
+
+    return (uint16_t)(y0 + (((y1 - y0) * frac) >> 5));
+}
+
+inline static void stupid_delay_us(uint32_t us) {
+    while (us--) {
+ 2a2:	8c e4       	ldi	r24, 0x4C	; 76
+ 2a4:	91 e0       	ldi	r25, 0x01	; 1
+ 2a6:	a0 e0       	ldi	r26, 0x00	; 0
+ 2a8:	b0 e0       	ldi	r27, 0x00	; 0
+ 2aa:	da cf       	rjmp	.-76     	; 0x260 <main+0x106>
+    uint32_t total_tick = 1000000 / (FREQ);
+    uint32_t time_on = (total_tick * scaled_strength) >> 10;
+    uint32_t time_off = total_tick - time_on;
+
+    stupid_delay_us(time_off);
+    LED_PORT |= _BV(LED);
+ 2ac:	5e 9a       	sbi	0x0b, 6	; 11
+ 2ae:	4c e4       	ldi	r20, 0x4C	; 76
+ 2b0:	51 e0       	ldi	r21, 0x01	; 1
+ 2b2:	60 e0       	ldi	r22, 0x00	; 0
+ 2b4:	70 e0       	ldi	r23, 0x00	; 0
+ 2b6:	e1 cf       	rjmp	.-62     	; 0x27a <main+0x120>
+
+000002b8 <__umulhisi3>:
+ 2b8:	a2 9f       	mul	r26, r18
+ 2ba:	b0 01       	movw	r22, r0
+ 2bc:	b3 9f       	mul	r27, r19
+ 2be:	c0 01       	movw	r24, r0
+ 2c0:	a3 9f       	mul	r26, r19
+ 2c2:	70 0d       	add	r23, r0
+ 2c4:	81 1d       	adc	r24, r1
+ 2c6:	11 24       	eor	r1, r1
+ 2c8:	91 1d       	adc	r25, r1
+ 2ca:	b2 9f       	mul	r27, r18
+ 2cc:	70 0d       	add	r23, r0
+ 2ce:	81 1d       	adc	r24, r1
+ 2d0:	11 24       	eor	r1, r1
+ 2d2:	91 1d       	adc	r25, r1
+ 2d4:	08 95       	ret
+
+000002d6 <__muluhisi3>:
+ 2d6:	0e 94 5c 01 	call	0x2b8	; 0x2b8 <__umulhisi3>
+ 2da:	a5 9f       	mul	r26, r21
+ 2dc:	90 0d       	add	r25, r0
+ 2de:	b4 9f       	mul	r27, r20
+ 2e0:	90 0d       	add	r25, r0
+ 2e2:	a4 9f       	mul	r26, r20
+ 2e4:	80 0d       	add	r24, r0
+ 2e6:	91 1d       	adc	r25, r1
+ 2e8:	11 24       	eor	r1, r1
+ 2ea:	08 95       	ret
+
+000002ec <_exit>:
+ 2ec:	f8 94       	cli
+
+000002ee <__stop_program>:
+ 2ee:	ff cf       	rjmp	.-2      	; 0x2ee <__stop_program>

@@ -1,5 +1,5 @@
 
-PRG            = main
+PRG            = zadanie2
 OBJ            = ${PRG}.o
 PROGRAMMER     = arduino
 PORT           = /dev/ttyUSB0
