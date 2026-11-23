@@ -64,25 +64,21 @@ void play_note_for(char note, uint32_t length, uint32_t padding) {
 #define NOTE_PADDING 10000
 
 static const uint8_t SONG[][2] = {
-    // Takt 1: E, E, E
     {'E', 4}, {'E', 4}, {'E', 2},
     {'E', 4}, {'E', 4}, {'E', 2},
     {'E', 4}, {'G', 4}, {'C', 4}, {'D', 4},
     {'E', 1},
 
-    // === LINIA 2 (Takty 5-8): Oh, what fun it is to ride in a one-horse open sleigh! ===
     {'F', 4}, {'F', 4}, {'F', 4}, {'F', 4},
     {'F', 4}, {'E', 4}, {'E', 4}, {'E', 4},
     {'E', 4}, {'D', 4}, {'D', 4}, {'E', 4},
     {'D', 2}, {'G', 2},
 
-    // === LINIA 3 (Takty 9-12): Jingle bells, jingle bells, jingle all the way. ===
     {'E', 4}, {'E', 4}, {'E', 2},
     {'E', 4}, {'E', 4}, {'E', 2},
     {'E', 4}, {'G', 4}, {'C', 4}, {'D', 4},
     {'E', 1},
 
-    // === LINIA 4 (Takty 13-16): Oh, what fun it is to ride in a one-horse open sleigh! ===
     {'F', 4}, {'F', 4}, {'F', 4}, {'F', 4},
     {'F', 4}, {'E', 4}, {'E', 4}, {'E', 4},
     {'E', 4}, {'G', 4}, {'G', 4}, {'F', 4},

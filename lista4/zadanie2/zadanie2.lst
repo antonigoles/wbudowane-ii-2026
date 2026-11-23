@@ -1,0 +1,327 @@
+
+zadanie2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000000  00800100  000001f8  0000026c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000001f8  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .stab         000005b8  00000000  00000000  0000026c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000d19  00000000  00000000  00000824  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .comment      00000011  00000000  00000000  0000153d  2**0
+                  CONTENTS, READONLY
+  5 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001550  2**2
+                  CONTENTS, READONLY
+  6 .debug_info   000005f4  00000000  00000000  00001590  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000005a2  00000000  00000000  00001b84  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000001a  00000000  00000000  00002126  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000208  00000000  00000000  00002140  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 44 00 	jmp	0x88	; 0x88 <__ctors_end>
+   4:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   8:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+   c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  10:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  14:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  18:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  1c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  20:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  24:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  28:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  2c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  30:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  34:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  38:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  3c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  40:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  44:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  48:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  4c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  50:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  54:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  58:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  5c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  60:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  64:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+
+00000068 <__trampolines_end>:
+  68:	00 01       	movw	r0, r0
+  6a:	01 02       	muls	r16, r17
+  6c:	03 04       	cpc	r0, r3
+  6e:	06 08       	sbc	r0, r6
+  70:	0b 0e       	add	r0, r27
+  72:	12 16       	cp	r1, r18
+  74:	1b 21       	and	r17, r11
+  76:	28 2f       	mov	r18, r24
+  78:	38 41       	sbci	r19, 0x18	; 24
+  7a:	4c 57       	subi	r20, 0x7C	; 124
+  7c:	64 72       	andi	r22, 0x24	; 36
+  7e:	81 91       	ld	r24, Z+
+  80:	a3 b6       	in	r10, 0x33	; 51
+  82:	ca e0       	ldi	r28, 0x0A	; 10
+  84:	f7 fa       	bst	r15, 7
+  86:	fd ff       	.word	0xfffd	; ????
+
+00000088 <__ctors_end>:
+  88:	11 24       	eor	r1, r1
+  8a:	1f be       	out	0x3f, r1	; 63
+  8c:	cf ef       	ldi	r28, 0xFF	; 255
+  8e:	d8 e0       	ldi	r29, 0x08	; 8
+  90:	de bf       	out	0x3e, r29	; 62
+  92:	cd bf       	out	0x3d, r28	; 61
+  94:	0e 94 50 00 	call	0xa0	; 0xa0 <main>
+  98:	0c 94 fa 00 	jmp	0x1f4	; 0x1f4 <_exit>
+
+0000009c <__bad_interrupt>:
+  9c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a0 <main>:
+};
+
+// Inicjalizacja sprzętowego PWM na Timer0 (wyjście OC0A / pin PD6 / Arduino D6)
+static void pwm_init(void) {
+    // Ustaw pin PD6 (OC0A) jako wyjście
+    DDRD |= (1 << DDD6);
+  a0:	56 9a       	sbi	0x0a, 6	; 10
+
+    // Tryb Fast PWM (Mode 3): WGM01 = 1, WGM00 = 1, TOP = 0xFF
+    // Non-inverting mode na kanale A: COM0A1 = 1, COM0A0 = 0
+    TCCR0A = (1 << COM0A1) | (1 << WGM01) | (1 << WGM00);
+  a2:	83 e8       	ldi	r24, 0x83	; 131
+  a4:	84 bd       	out	0x24, r24	; 36
+
+    // Preskaler = 64: f_PWM = 16 MHz / (64 * 256) ~= 976.5 Hz
+    TCCR0B = (1 << CS01) | (1 << CS00);
+  a6:	83 e0       	ldi	r24, 0x03	; 3
+  a8:	85 bd       	out	0x25, r24	; 37
+
+    OCR0A = 0; // Początkowo compare register na zero
+  aa:	17 bc       	out	0x27, r1	; 39
+
+// Inicjalizacja przetwornika ADC
+static void adc_init(void) {
+    // VREF = AVcc z zewnętrznym kondensatorem na AREF (REFS0 = 1)
+    // Wejście: ADC0 (pin A0 / PC0) domyślnie wybrane przez bity MUX3:0 = 0000
+    ADMUX = (1 << REFS0);
+  ac:	80 e4       	ldi	r24, 0x40	; 64
+  ae:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+
+    // Włączenie ADC (ADEN), preskaler 128: 16 MHz / 128 = 125 kHz (optymalne 50-200 kHz)
+    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+  b2:	87 e8       	ldi	r24, 0x87	; 135
+  b4:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+
+    // Wyłączenie bufora cyfrowego na pinie PC0 (zmniejsza szumy i pobór prądu)
+    DIDR0 |= (1 << ADC0D);
+  b8:	80 91 7e 00 	lds	r24, 0x007E	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+  bc:	81 60       	ori	r24, 0x01	; 1
+  be:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+  c2:	f2 e5       	ldi	r31, 0x52	; 82
+  c4:	8f 2e       	mov	r8, r31
+  c6:	f3 e0       	ldi	r31, 0x03	; 3
+  c8:	9f 2e       	mov	r9, r31
+  ca:	a1 2c       	mov	r10, r1
+  cc:	b1 2c       	mov	r11, r1
+        if (val > ADC_MAX) val = ADC_MAX;
+
+        // Odwrotna zależność:
+        // Ciemno (ADC_MIN) -> index = 31 (maksymalna jasność)
+        // Jasno (ADC_MAX)  -> index = 0  (dioda wygaszona)
+        uint8_t index = (uint8_t)(((ADC_MAX - val) * 31L) / (ADC_MAX - ADC_MIN));
+  ce:	ac eb       	ldi	r26, 0xBC	; 188
+  d0:	ca 2e       	mov	r12, r26
+  d2:	a2 e0       	ldi	r26, 0x02	; 2
+  d4:	da 2e       	mov	r13, r26
+  d6:	e1 2c       	mov	r14, r1
+  d8:	f1 2c       	mov	r15, r1
+    // Wyłączenie bufora cyfrowego na pinie PC0 (zmniejsza szumy i pobór prądu)
+    DIDR0 |= (1 << ADC0D);
+}
+
+static uint16_t adc_read(void) {
+    ADCSRA |= (1 << ADSC);
+  da:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  de:	80 64       	ori	r24, 0x40	; 64
+  e0:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+    while (ADCSRA & (1 << ADSC));
+  e4:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  e8:	86 fd       	sbrc	r24, 6
+  ea:	fc cf       	rjmp	.-8      	; 0xe4 <main+0x44>
+    return ADC;
+  ec:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7f8078>
+  f0:	90 91 79 00 	lds	r25, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+int main(void) {
+    pwm_init();
+    adc_init();
+
+    while (1) {
+        long val = (long)adc_read();
+  f4:	b0 e0       	ldi	r27, 0x00	; 0
+  f6:	a0 e0       	ldi	r26, 0x00	; 0
+  f8:	83 35       	cpi	r24, 0x53	; 83
+  fa:	23 e0       	ldi	r18, 0x03	; 3
+  fc:	92 07       	cpc	r25, r18
+  fe:	a1 05       	cpc	r26, r1
+ 100:	b1 05       	cpc	r27, r1
+ 102:	24 f0       	brlt	.+8      	; 0x10c <main+0x6c>
+ 104:	82 e5       	ldi	r24, 0x52	; 82
+ 106:	93 e0       	ldi	r25, 0x03	; 3
+ 108:	a0 e0       	ldi	r26, 0x00	; 0
+ 10a:	b0 e0       	ldi	r27, 0x00	; 0
+        if (val > ADC_MAX) val = ADC_MAX;
+
+        // Odwrotna zależność:
+        // Ciemno (ADC_MIN) -> index = 31 (maksymalna jasność)
+        // Jasno (ADC_MAX)  -> index = 0  (dioda wygaszona)
+        uint8_t index = (uint8_t)(((ADC_MAX - val) * 31L) / (ADC_MAX - ADC_MIN));
+ 10c:	86 39       	cpi	r24, 0x96	; 150
+ 10e:	91 05       	cpc	r25, r1
+ 110:	a1 05       	cpc	r26, r1
+ 112:	b1 05       	cpc	r27, r1
+ 114:	24 f4       	brge	.+8      	; 0x11e <main+0x7e>
+ 116:	86 e9       	ldi	r24, 0x96	; 150
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+ 11a:	a0 e0       	ldi	r26, 0x00	; 0
+ 11c:	b0 e0       	ldi	r27, 0x00	; 0
+ 11e:	95 01       	movw	r18, r10
+ 120:	84 01       	movw	r16, r8
+ 122:	08 1b       	sub	r16, r24
+ 124:	19 0b       	sbc	r17, r25
+ 126:	2a 0b       	sbc	r18, r26
+ 128:	3b 0b       	sbc	r19, r27
+ 12a:	c9 01       	movw	r24, r18
+ 12c:	b8 01       	movw	r22, r16
+ 12e:	66 0f       	add	r22, r22
+ 130:	77 1f       	adc	r23, r23
+ 132:	88 1f       	adc	r24, r24
+ 134:	99 1f       	adc	r25, r25
+ 136:	66 0f       	add	r22, r22
+ 138:	77 1f       	adc	r23, r23
+ 13a:	88 1f       	adc	r24, r24
+ 13c:	99 1f       	adc	r25, r25
+ 13e:	66 0f       	add	r22, r22
+ 140:	77 1f       	adc	r23, r23
+ 142:	88 1f       	adc	r24, r24
+ 144:	99 1f       	adc	r25, r25
+ 146:	66 0f       	add	r22, r22
+ 148:	77 1f       	adc	r23, r23
+ 14a:	88 1f       	adc	r24, r24
+ 14c:	99 1f       	adc	r25, r25
+ 14e:	66 0f       	add	r22, r22
+ 150:	77 1f       	adc	r23, r23
+ 152:	88 1f       	adc	r24, r24
+ 154:	99 1f       	adc	r25, r25
+ 156:	60 1b       	sub	r22, r16
+ 158:	71 0b       	sbc	r23, r17
+ 15a:	82 0b       	sbc	r24, r18
+ 15c:	93 0b       	sbc	r25, r19
+ 15e:	a7 01       	movw	r20, r14
+ 160:	96 01       	movw	r18, r12
+ 162:	0e 94 b9 00 	call	0x172	; 0x172 <__divmodsi4>
+
+        // Pobranie skorygowanego wypełnienia PWM z tablicy w pamięci Flash
+        OCR0A = pgm_read_byte(&gamma_lut[index]);
+ 166:	28 59       	subi	r18, 0x98	; 152
+ 168:	3f 4f       	sbci	r19, 0xFF	; 255
+ 16a:	f9 01       	movw	r30, r18
+ 16c:	24 91       	lpm	r18, Z
+ 16e:	27 bd       	out	0x27, r18	; 39
+
+int main(void) {
+    pwm_init();
+    adc_init();
+
+    while (1) {
+ 170:	b4 cf       	rjmp	.-152    	; 0xda <main+0x3a>
+
+00000172 <__divmodsi4>:
+ 172:	05 2e       	mov	r0, r21
+ 174:	97 fb       	bst	r25, 7
+ 176:	1e f4       	brtc	.+6      	; 0x17e <__divmodsi4+0xc>
+ 178:	00 94       	com	r0
+ 17a:	0e 94 d0 00 	call	0x1a0	; 0x1a0 <__negsi2>
+ 17e:	57 fd       	sbrc	r21, 7
+ 180:	07 d0       	rcall	.+14     	; 0x190 <__divmodsi4_neg2>
+ 182:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <__udivmodsi4>
+ 186:	07 fc       	sbrc	r0, 7
+ 188:	03 d0       	rcall	.+6      	; 0x190 <__divmodsi4_neg2>
+ 18a:	4e f4       	brtc	.+18     	; 0x19e <__divmodsi4_exit>
+ 18c:	0c 94 d0 00 	jmp	0x1a0	; 0x1a0 <__negsi2>
+
+00000190 <__divmodsi4_neg2>:
+ 190:	50 95       	com	r21
+ 192:	40 95       	com	r20
+ 194:	30 95       	com	r19
+ 196:	21 95       	neg	r18
+ 198:	3f 4f       	sbci	r19, 0xFF	; 255
+ 19a:	4f 4f       	sbci	r20, 0xFF	; 255
+ 19c:	5f 4f       	sbci	r21, 0xFF	; 255
+
+0000019e <__divmodsi4_exit>:
+ 19e:	08 95       	ret
+
+000001a0 <__negsi2>:
+ 1a0:	90 95       	com	r25
+ 1a2:	80 95       	com	r24
+ 1a4:	70 95       	com	r23
+ 1a6:	61 95       	neg	r22
+ 1a8:	7f 4f       	sbci	r23, 0xFF	; 255
+ 1aa:	8f 4f       	sbci	r24, 0xFF	; 255
+ 1ac:	9f 4f       	sbci	r25, 0xFF	; 255
+ 1ae:	08 95       	ret
+
+000001b0 <__udivmodsi4>:
+ 1b0:	a1 e2       	ldi	r26, 0x21	; 33
+ 1b2:	1a 2e       	mov	r1, r26
+ 1b4:	aa 1b       	sub	r26, r26
+ 1b6:	bb 1b       	sub	r27, r27
+ 1b8:	fd 01       	movw	r30, r26
+ 1ba:	0d c0       	rjmp	.+26     	; 0x1d6 <__udivmodsi4_ep>
+
+000001bc <__udivmodsi4_loop>:
+ 1bc:	aa 1f       	adc	r26, r26
+ 1be:	bb 1f       	adc	r27, r27
+ 1c0:	ee 1f       	adc	r30, r30
+ 1c2:	ff 1f       	adc	r31, r31
+ 1c4:	a2 17       	cp	r26, r18
+ 1c6:	b3 07       	cpc	r27, r19
+ 1c8:	e4 07       	cpc	r30, r20
+ 1ca:	f5 07       	cpc	r31, r21
+ 1cc:	20 f0       	brcs	.+8      	; 0x1d6 <__udivmodsi4_ep>
+ 1ce:	a2 1b       	sub	r26, r18
+ 1d0:	b3 0b       	sbc	r27, r19
+ 1d2:	e4 0b       	sbc	r30, r20
+ 1d4:	f5 0b       	sbc	r31, r21
+
+000001d6 <__udivmodsi4_ep>:
+ 1d6:	66 1f       	adc	r22, r22
+ 1d8:	77 1f       	adc	r23, r23
+ 1da:	88 1f       	adc	r24, r24
+ 1dc:	99 1f       	adc	r25, r25
+ 1de:	1a 94       	dec	r1
+ 1e0:	69 f7       	brne	.-38     	; 0x1bc <__udivmodsi4_loop>
+ 1e2:	60 95       	com	r22
+ 1e4:	70 95       	com	r23
+ 1e6:	80 95       	com	r24
+ 1e8:	90 95       	com	r25
+ 1ea:	9b 01       	movw	r18, r22
+ 1ec:	ac 01       	movw	r20, r24
+ 1ee:	bd 01       	movw	r22, r26
+ 1f0:	cf 01       	movw	r24, r30
+ 1f2:	08 95       	ret
+
+000001f4 <_exit>:
+ 1f4:	f8 94       	cli
+
+000001f6 <__stop_program>:
+ 1f6:	ff cf       	rjmp	.-2      	; 0x1f6 <__stop_program>

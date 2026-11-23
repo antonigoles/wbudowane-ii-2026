@@ -1,0 +1,1033 @@
+
+zadanie3.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00800100  000006d4  00000748  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000006d4  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .stab         0000093c  00000000  00000000  0000074c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000e6b  00000000  00000000  00001088  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .comment      00000011  00000000  00000000  00001ef3  2**0
+                  CONTENTS, READONLY
+  5 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00001f04  2**2
+                  CONTENTS, READONLY
+  6 .debug_info   000005f4  00000000  00000000  00001f44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000005a2  00000000  00000000  00002538  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000001a  00000000  00000000  00002ada  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000208  00000000  00000000  00002af4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 f4 00 	jmp	0x1e8	; 0x1e8 <__ctors_end>
+   4:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+   8:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+   c:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  10:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  14:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  18:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  1c:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  20:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  24:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  28:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  2c:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  30:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  34:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  38:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  3c:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  40:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  44:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  48:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  4c:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  50:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  54:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  58:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  5c:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  60:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+  64:	0c 94 09 01 	jmp	0x212	; 0x212 <__bad_interrupt>
+
+00000068 <__trampolines_end>:
+	...
+  7c:	00 01       	movw	r0, r0
+  7e:	01 01       	movw	r0, r2
+  80:	01 01       	movw	r0, r2
+  82:	01 01       	movw	r0, r2
+  84:	01 02       	muls	r16, r17
+  86:	02 02       	muls	r16, r18
+  88:	02 02       	muls	r16, r18
+  8a:	02 03       	mulsu	r16, r18
+  8c:	03 03       	mulsu	r16, r19
+  8e:	03 03       	mulsu	r16, r19
+  90:	04 04       	cpc	r0, r4
+  92:	04 04       	cpc	r0, r4
+  94:	05 05       	cpc	r16, r5
+  96:	05 05       	cpc	r16, r5
+  98:	06 06       	cpc	r0, r22
+  9a:	06 07       	cpc	r16, r22
+  9c:	07 07       	cpc	r16, r23
+  9e:	08 08       	sbc	r0, r8
+  a0:	08 09       	sbc	r16, r8
+  a2:	09 09       	sbc	r16, r9
+  a4:	0a 0a       	sbc	r0, r26
+  a6:	0b 0b       	sbc	r16, r27
+  a8:	0b 0c       	add	r0, r11
+  aa:	0c 0d       	add	r16, r12
+  ac:	0d 0d       	add	r16, r13
+  ae:	0e 0e       	add	r0, r30
+  b0:	0f 0f       	add	r16, r31
+  b2:	10 10       	cpse	r1, r0
+  b4:	11 11       	cpse	r17, r1
+  b6:	12 12       	cpse	r1, r18
+  b8:	13 13       	cpse	r17, r19
+  ba:	14 15       	cp	r17, r4
+  bc:	15 16       	cp	r1, r21
+  be:	16 17       	cp	r17, r22
+  c0:	17 18       	sub	r1, r7
+  c2:	19 19       	sub	r17, r9
+  c4:	1a 1b       	sub	r17, r26
+  c6:	1b 1c       	adc	r1, r11
+  c8:	1d 1d       	adc	r17, r13
+  ca:	1e 1f       	adc	r17, r30
+  cc:	1f 20       	and	r1, r15
+  ce:	21 22       	and	r2, r17
+  d0:	22 23       	and	r18, r18
+  d2:	24 25       	eor	r18, r4
+  d4:	25 26       	eor	r2, r21
+  d6:	27 28       	or	r2, r7
+  d8:	28 29       	or	r18, r8
+  da:	2a 2b       	or	r18, r26
+  dc:	2c 2d       	mov	r18, r12
+  de:	2e 2e       	mov	r2, r30
+  e0:	2f 30       	cpi	r18, 0x0F	; 15
+  e2:	31 32       	cpi	r19, 0x21	; 33
+  e4:	33 34       	cpi	r19, 0x43	; 67
+  e6:	35 36       	cpi	r19, 0x65	; 101
+  e8:	37 38       	cpi	r19, 0x87	; 135
+  ea:	39 3a       	cpi	r19, 0xA9	; 169
+  ec:	3b 3c       	cpi	r19, 0xCB	; 203
+  ee:	3d 3e       	cpi	r19, 0xED	; 237
+  f0:	3f 40       	sbci	r19, 0x0F	; 15
+  f2:	41 42       	sbci	r20, 0x21	; 33
+  f4:	43 44       	sbci	r20, 0x43	; 67
+  f6:	45 46       	sbci	r20, 0x65	; 101
+  f8:	47 48       	sbci	r20, 0x87	; 135
+  fa:	49 4a       	sbci	r20, 0xA9	; 169
+  fc:	4c 4d       	sbci	r20, 0xDC	; 220
+  fe:	4e 4f       	sbci	r20, 0xFE	; 254
+ 100:	50 51       	subi	r21, 0x10	; 16
+ 102:	53 54       	subi	r21, 0x43	; 67
+ 104:	55 56       	subi	r21, 0x65	; 101
+ 106:	58 59       	subi	r21, 0x98	; 152
+ 108:	5a 5b       	subi	r21, 0xBA	; 186
+ 10a:	5d 5e       	subi	r21, 0xED	; 237
+ 10c:	5f 60       	ori	r21, 0x0F	; 15
+ 10e:	62 63       	ori	r22, 0x32	; 50
+ 110:	64 66       	ori	r22, 0x64	; 100
+ 112:	67 68       	ori	r22, 0x87	; 135
+ 114:	6a 6b       	ori	r22, 0xBA	; 186
+ 116:	6d 6e       	ori	r22, 0xED	; 237
+ 118:	6f 71       	andi	r22, 0x1F	; 31
+ 11a:	72 74       	andi	r23, 0x42	; 66
+ 11c:	75 77       	andi	r23, 0x75	; 117
+ 11e:	78 79       	andi	r23, 0x98	; 152
+ 120:	7b 7c       	andi	r23, 0xCB	; 203
+ 122:	7e 80       	ldd	r7, Y+6	; 0x06
+ 124:	81 83       	std	Z+1, r24	; 0x01
+ 126:	84 86       	std	Z+12, r8	; 0x0c
+ 128:	87 89       	ldd	r24, Z+23	; 0x17
+ 12a:	8a 8c       	ldd	r8, Y+26	; 0x1a
+ 12c:	8e 8f       	std	Y+30, r24	; 0x1e
+ 12e:	91 92       	st	Z+, r9
+ 130:	94 96       	adiw	r26, 0x24	; 36
+ 132:	97 99       	sbic	0x12, 7	; 18
+ 134:	9b 9d       	mul	r25, r11
+ 136:	9e a0       	ldd	r9, Y+38	; 0x26
+ 138:	a2 a3       	std	Z+34, r26	; 0x22
+ 13a:	a5 a7       	std	Z+45, r26	; 0x2d
+ 13c:	a9 aa       	std	Y+49, r10	; 0x31
+ 13e:	ac ae       	std	Y+60, r10	; 0x3c
+ 140:	b0 b2       	in	r11, 0x10	; 16
+ 142:	b3 b5       	in	r27, 0x23	; 35
+ 144:	b7 b9       	out	0x07, r27	; 7
+ 146:	bb bd       	out	0x2b, r27	; 43
+ 148:	bf c1       	rjmp	.+894    	; 0x4c8 <__EEPROM_REGION_LENGTH__+0xc8>
+ 14a:	c2 c4       	rjmp	.+2436   	; 0xad0 <__stack+0x1d1>
+ 14c:	c6 c8       	rjmp	.-3700   	; 0xfffff2da <__eeprom_end+0xff7ef2da>
+ 14e:	ca cc       	rjmp	.-1644   	; 0xfffffae4 <__eeprom_end+0xff7efae4>
+ 150:	ce d0       	rcall	.+412    	; 0x2ee <main+0x8c>
+ 152:	d2 d4       	rcall	.+2468   	; 0xaf8 <__stack+0x1f9>
+ 154:	d6 d8       	rcall	.-3668   	; 0xfffff302 <__eeprom_end+0xff7ef302>
+ 156:	da dc       	rcall	.-1612   	; 0xfffffb0c <__eeprom_end+0xff7efb0c>
+ 158:	de e0       	ldi	r29, 0x0E	; 14
+ 15a:	e2 e5       	ldi	r30, 0x52	; 82
+ 15c:	e7 e9       	ldi	r30, 0x97	; 151
+ 15e:	eb ed       	ldi	r30, 0xDB	; 219
+ 160:	ef f1       	brie	.+122    	; 0x1dc <breath_sine+0x74>
+ 162:	f4 f6       	brge	.-68     	; 0x120 <__trampolines_end+0xb8>
+ 164:	f8 fa       	.word	0xfaf8	; ????
+ 166:	fd ff       	.word	0xfffd	; ????
+
+00000168 <breath_sine>:
+ 168:	00 00 00 00 01 01 01 02 02 03 04 05 06 07 08 09     ................
+ 178:	0a 0b 0d 0e 10 11 13 15 16 18 1a 1c 1e 20 23 25     ............. #%
+ 188:	27 2a 2c 2f 31 34 37 39 3c 3f 42 45 48 4b 4e 51     '*,/1479<?BEHKNQ
+ 198:	54 57 5a 5e 61 64 67 6b 6e 71 75 78 7b 7f 82 85     TWZ^adgknqux{...
+ 1a8:	89 8c 8f 92 96 99 9c 9f a3 a6 a9 ac af b2 b5 b8     ................
+ 1b8:	bb be c1 c4 c7 c9 cc cf d1 d4 d6 d9 db dd e0 e2     ................
+ 1c8:	e4 e6 e8 ea ec ed ef f1 f2 f4 f5 f6 f7 f9 fa fb     ................
+ 1d8:	fb fc fd fd fe fe fe ff ff ff ff ff ff ff ff ff     ................
+
+000001e8 <__ctors_end>:
+ 1e8:	11 24       	eor	r1, r1
+ 1ea:	1f be       	out	0x3f, r1	; 63
+ 1ec:	cf ef       	ldi	r28, 0xFF	; 255
+ 1ee:	d8 e0       	ldi	r29, 0x08	; 8
+ 1f0:	de bf       	out	0x3e, r29	; 62
+ 1f2:	cd bf       	out	0x3d, r28	; 61
+
+000001f4 <__do_copy_data>:
+ 1f4:	11 e0       	ldi	r17, 0x01	; 1
+ 1f6:	a0 e0       	ldi	r26, 0x00	; 0
+ 1f8:	b1 e0       	ldi	r27, 0x01	; 1
+ 1fa:	e4 ed       	ldi	r30, 0xD4	; 212
+ 1fc:	f6 e0       	ldi	r31, 0x06	; 6
+ 1fe:	02 c0       	rjmp	.+4      	; 0x204 <__do_copy_data+0x10>
+ 200:	05 90       	lpm	r0, Z+
+ 202:	0d 92       	st	X+, r0
+ 204:	a4 30       	cpi	r26, 0x04	; 4
+ 206:	b1 07       	cpc	r27, r17
+ 208:	d9 f7       	brne	.-10     	; 0x200 <__do_copy_data+0xc>
+ 20a:	0e 94 31 01 	call	0x262	; 0x262 <main>
+ 20e:	0c 94 68 03 	jmp	0x6d0	; 0x6d0 <_exit>
+
+00000212 <__bad_interrupt>:
+ 212:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000216 <init_random>:
+    OCR1B = 0;
+    OCR2A = 0;
+}
+
+static void adc_init(void) {
+    ADMUX = (1 << REFS0);
+ 216:	80 e4       	ldi	r24, 0x40	; 64
+ 218:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+ 21c:	87 e8       	ldi	r24, 0x87	; 135
+ 21e:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+    DIDR0 |= (1 << ADC0D);
+ 222:	80 91 7e 00 	lds	r24, 0x007E	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+ 226:	81 60       	ori	r24, 0x01	; 1
+ 228:	80 93 7e 00 	sts	0x007E, r24	; 0x80007e <__TEXT_REGION_LENGTH__+0x7f807e>
+ 22c:	40 e1       	ldi	r20, 0x10	; 16
+}
+
+// source: https://stackoverflow.com/questions/50974884/avr-atmega128-random-number-generator-from-range
+void init_random() {
+    uint16_t u_rand_val = 0;
+    uint16_t u_seed_rand_val = 0;
+ 22e:	30 e0       	ldi	r19, 0x00	; 0
+ 230:	20 e0       	ldi	r18, 0x00	; 0
+    adc_init();
+    for(uint8_t i=0; i<16; i++){
+        u_seed_rand_val = u_seed_rand_val<<1 | (adc_read()&0b1);
+ 232:	22 0f       	add	r18, r18
+ 234:	33 1f       	adc	r19, r19
+    ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+    DIDR0 |= (1 << ADC0D);
+}
+
+static uint16_t adc_read(void) {
+    ADCSRA |= (1 << ADSC);
+ 236:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 23a:	80 64       	ori	r24, 0x40	; 64
+ 23c:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+    while (ADCSRA & (1 << ADSC));
+ 240:	90 91 7a 00 	lds	r25, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 244:	96 fd       	sbrc	r25, 6
+ 246:	fc cf       	rjmp	.-8      	; 0x240 <init_random+0x2a>
+    return ADC;
+ 248:	80 91 78 00 	lds	r24, 0x0078	; 0x800078 <__TEXT_REGION_LENGTH__+0x7f8078>
+ 24c:	90 91 79 00 	lds	r25, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+void init_random() {
+    uint16_t u_rand_val = 0;
+    uint16_t u_seed_rand_val = 0;
+    adc_init();
+    for(uint8_t i=0; i<16; i++){
+        u_seed_rand_val = u_seed_rand_val<<1 | (adc_read()&0b1);
+ 250:	81 70       	andi	r24, 0x01	; 1
+ 252:	99 27       	eor	r25, r25
+ 254:	28 2b       	or	r18, r24
+ 256:	39 2b       	or	r19, r25
+ 258:	41 50       	subi	r20, 0x01	; 1
+// source: https://stackoverflow.com/questions/50974884/avr-atmega128-random-number-generator-from-range
+void init_random() {
+    uint16_t u_rand_val = 0;
+    uint16_t u_seed_rand_val = 0;
+    adc_init();
+    for(uint8_t i=0; i<16; i++){
+ 25a:	59 f7       	brne	.-42     	; 0x232 <init_random+0x1c>
+        u_seed_rand_val = u_seed_rand_val<<1 | (adc_read()&0b1);
+    }
+    srand(u_seed_rand_val);
+ 25c:	c9 01       	movw	r24, r18
+ 25e:	0c 94 09 03 	jmp	0x612	; 0x612 <srand>
+
+00000262 <main>:
+    191, 193, 194, 196, 198, 200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220,
+    222, 224, 226, 229, 231, 233, 235, 237, 239, 241, 244, 246, 248, 250, 253, 255
+};
+
+static void pwm_init(void) {
+    DDRB |= (1 << DDB1) | (1 << DDB2) | (1 << DDB3);
+ 262:	84 b1       	in	r24, 0x04	; 4
+ 264:	8e 60       	ori	r24, 0x0E	; 14
+ 266:	84 b9       	out	0x04, r24	; 4
+
+    // fast pwm, inverting, preskaler tak zeby ok 976hz bylo 
+    TCCR1A = (1 << COM1A1) | (1 << COM1A0) | (1 << COM1B1) | (1 << COM1B0) | (1 << WGM10);
+ 268:	81 ef       	ldi	r24, 0xF1	; 241
+ 26a:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
+    TCCR1B = (1 << WGM12) | (1 << CS11) | (1 << CS10);
+ 26e:	8b e0       	ldi	r24, 0x0B	; 11
+ 270:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+
+    TCCR2A = (1 << COM2A1) | (1 << COM2A0) | (1 << WGM21) | (1 << WGM20);
+ 274:	83 ec       	ldi	r24, 0xC3	; 195
+ 276:	80 93 b0 00 	sts	0x00B0, r24	; 0x8000b0 <__TEXT_REGION_LENGTH__+0x7f80b0>
+    TCCR2B = (1 << CS22);
+ 27a:	84 e0       	ldi	r24, 0x04	; 4
+ 27c:	80 93 b1 00 	sts	0x00B1, r24	; 0x8000b1 <__TEXT_REGION_LENGTH__+0x7f80b1>
+
+    OCR1A = 0;
+ 280:	10 92 89 00 	sts	0x0089, r1	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 284:	10 92 88 00 	sts	0x0088, r1	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+    OCR1B = 0;
+ 288:	10 92 8b 00 	sts	0x008B, r1	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 28c:	10 92 8a 00 	sts	0x008A, r1	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+    OCR2A = 0;
+ 290:	10 92 b3 00 	sts	0x00B3, r1	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
+    }
+}
+
+int main(void) {
+    pwm_init();
+    init_random();
+ 294:	0e 94 0b 01 	call	0x216	; 0x216 <init_random>
+
+    uint8_t random_r = 0;
+    uint8_t random_g = 0;
+    uint8_t random_b = 0;
+    hue_to_rgb((uint16_t)rand() % 1530, &random_r, &random_g, &random_b);
+ 298:	0e 94 04 03 	call	0x608	; 0x608 <rand>
+ 29c:	6a ef       	ldi	r22, 0xFA	; 250
+ 29e:	75 e0       	ldi	r23, 0x05	; 5
+ 2a0:	0e 94 81 02 	call	0x502	; 0x502 <__udivmodhi4>
+}   
+
+// daje kolor z H={hue}, S=255 i V=255 (jakas magia)
+static void hue_to_rgb(uint16_t hue, uint8_t *r, uint8_t *g, uint8_t *b) {
+    uint8_t sector = hue / 255;
+    uint8_t offset = hue % 255;
+ 2a4:	6f ef       	ldi	r22, 0xFF	; 255
+ 2a6:	70 e0       	ldi	r23, 0x00	; 0
+ 2a8:	0e 94 95 02 	call	0x52a	; 0x52a <__divmodhi4>
+ 2ac:	8c 01       	movw	r16, r24
+
+    switch (sector) {
+ 2ae:	62 30       	cpi	r22, 0x02	; 2
+ 2b0:	71 05       	cpc	r23, r1
+ 2b2:	09 f4       	brne	.+2      	; 0x2b6 <main+0x54>
+ 2b4:	0a c1       	rjmp	.+532    	; 0x4ca <__EEPROM_REGION_LENGTH__+0xca>
+ 2b6:	08 f0       	brcs	.+2      	; 0x2ba <main+0x58>
+ 2b8:	f5 c0       	rjmp	.+490    	; 0x4a4 <__EEPROM_REGION_LENGTH__+0xa4>
+ 2ba:	61 15       	cp	r22, r1
+ 2bc:	71 05       	cpc	r23, r1
+ 2be:	09 f4       	brne	.+2      	; 0x2c2 <main+0x60>
+ 2c0:	e4 c0       	rjmp	.+456    	; 0x48a <__EEPROM_REGION_LENGTH__+0x8a>
+ 2c2:	61 30       	cpi	r22, 0x01	; 1
+ 2c4:	71 05       	cpc	r23, r1
+ 2c6:	09 f0       	breq	.+2      	; 0x2ca <main+0x68>
+ 2c8:	d1 c0       	rjmp	.+418    	; 0x46c <__EEPROM_REGION_LENGTH__+0x6c>
+        case 0:  *r = 255;          *g = offset;       *b = 0;            break; // R -> Y
+        case 1:  *r = 255 - offset; *g = 255;          *b = 0;            break; // Y -> G
+ 2ca:	80 95       	com	r24
+ 2cc:	08 2f       	mov	r16, r24
+ 2ce:	10 e0       	ldi	r17, 0x00	; 0
+ 2d0:	f8 01       	movw	r30, r16
+ 2d2:	e8 59       	subi	r30, 0x98	; 152
+ 2d4:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2d6:	88 e6       	ldi	r24, 0x68	; 104
+ 2d8:	90 e0       	ldi	r25, 0x00	; 0
+ 2da:	47 e6       	ldi	r20, 0x67	; 103
+ 2dc:	51 e0       	ldi	r21, 0x01	; 1
+ 2de:	f1 2c       	mov	r15, r1
+ 2e0:	e1 2c       	mov	r14, r1
+ 2e2:	cf ef       	ldi	r28, 0xFF	; 255
+ 2e4:	d0 e0       	ldi	r29, 0x00	; 0
+    return ADC;
+}
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+ 2e6:	24 91       	lpm	r18, Z
+    uint8_t pwm_g = pgm_read_byte(&gamma_lut[g]);
+ 2e8:	fa 01       	movw	r30, r20
+ 2ea:	44 91       	lpm	r20, Z
+    uint8_t pwm_b = pgm_read_byte(&gamma_lut[b]);
+ 2ec:	fc 01       	movw	r30, r24
+ 2ee:	84 91       	lpm	r24, Z
+
+    OCR1A = pwm_r;
+ 2f0:	30 e0       	ldi	r19, 0x00	; 0
+ 2f2:	30 93 89 00 	sts	0x0089, r19	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 2f6:	20 93 88 00 	sts	0x0088, r18	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+    OCR1B = pwm_b;
+ 2fa:	90 e0       	ldi	r25, 0x00	; 0
+ 2fc:	90 93 8b 00 	sts	0x008B, r25	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 300:	80 93 8a 00 	sts	0x008A, r24	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+    OCR2A = pwm_g;
+ 304:	40 93 b3 00 	sts	0x00B3, r20	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
+ 308:	a8 ee       	ldi	r26, 0xE8	; 232
+ 30a:	ca 2e       	mov	r12, r26
+ 30c:	a1 e0       	ldi	r26, 0x01	; 1
+ 30e:	da 2e       	mov	r13, r26
+    uint8_t offset = hue % 255;
+
+    switch (sector) {
+        case 0:  *r = 255;          *g = offset;       *b = 0;            break; // R -> Y
+        case 1:  *r = 255 - offset; *g = 255;          *b = 0;            break; // Y -> G
+        case 2:  *r = 0;            *g = 255;          *b = offset;       break; // G -> C
+ 310:	48 e6       	ldi	r20, 0x68	; 104
+ 312:	51 e0       	ldi	r21, 0x01	; 1
+    set_rgb_perceptual(random_r, random_g, random_b);
+    while (1) {
+
+        // w jednom strone
+        for (uint8_t i = 0; i < 128; i++) {
+            uint8_t breath = pgm_read_byte(&breath_sine[i]);
+ 314:	fa 01       	movw	r30, r20
+ 316:	84 90       	lpm	r8, Z
+
+            uint8_t r = (uint8_t)(((uint16_t)random_r * breath) / 255);
+ 318:	91 2c       	mov	r9, r1
+ 31a:	80 9e       	mul	r8, r16
+ 31c:	90 01       	movw	r18, r0
+ 31e:	81 9e       	mul	r8, r17
+ 320:	30 0d       	add	r19, r0
+ 322:	90 9e       	mul	r9, r16
+ 324:	30 0d       	add	r19, r0
+ 326:	11 24       	eor	r1, r1
+ 328:	a1 e8       	ldi	r26, 0x81	; 129
+ 32a:	b0 e8       	ldi	r27, 0x80	; 128
+ 32c:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 330:	88 0f       	add	r24, r24
+ 332:	89 2f       	mov	r24, r25
+ 334:	88 1f       	adc	r24, r24
+ 336:	99 0b       	sbc	r25, r25
+ 338:	91 95       	neg	r25
+    return ADC;
+}
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+ 33a:	fc 01       	movw	r30, r24
+ 33c:	e8 59       	subi	r30, 0x98	; 152
+ 33e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 340:	a4 90       	lpm	r10, Z
+        // w jednom strone
+        for (uint8_t i = 0; i < 128; i++) {
+            uint8_t breath = pgm_read_byte(&breath_sine[i]);
+
+            uint8_t r = (uint8_t)(((uint16_t)random_r * breath) / 255);
+            uint8_t g = (uint8_t)(((uint16_t)random_g * breath) / 255);
+ 342:	c8 9d       	mul	r28, r8
+ 344:	90 01       	movw	r18, r0
+ 346:	c9 9d       	mul	r28, r9
+ 348:	30 0d       	add	r19, r0
+ 34a:	d8 9d       	mul	r29, r8
+ 34c:	30 0d       	add	r19, r0
+ 34e:	11 24       	eor	r1, r1
+ 350:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 354:	88 0f       	add	r24, r24
+ 356:	89 2f       	mov	r24, r25
+ 358:	88 1f       	adc	r24, r24
+ 35a:	99 0b       	sbc	r25, r25
+ 35c:	91 95       	neg	r25
+}
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+    uint8_t pwm_g = pgm_read_byte(&gamma_lut[g]);
+ 35e:	fc 01       	movw	r30, r24
+ 360:	e8 59       	subi	r30, 0x98	; 152
+ 362:	ff 4f       	sbci	r31, 0xFF	; 255
+ 364:	b4 90       	lpm	r11, Z
+        for (uint8_t i = 0; i < 128; i++) {
+            uint8_t breath = pgm_read_byte(&breath_sine[i]);
+
+            uint8_t r = (uint8_t)(((uint16_t)random_r * breath) / 255);
+            uint8_t g = (uint8_t)(((uint16_t)random_g * breath) / 255);
+            uint8_t b = (uint8_t)(((uint16_t)random_b * breath) / 255);
+ 366:	8e 9c       	mul	r8, r14
+ 368:	90 01       	movw	r18, r0
+ 36a:	8f 9c       	mul	r8, r15
+ 36c:	30 0d       	add	r19, r0
+ 36e:	9e 9c       	mul	r9, r14
+ 370:	30 0d       	add	r19, r0
+ 372:	11 24       	eor	r1, r1
+ 374:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 378:	88 0f       	add	r24, r24
+ 37a:	89 2f       	mov	r24, r25
+ 37c:	88 1f       	adc	r24, r24
+ 37e:	99 0b       	sbc	r25, r25
+ 380:	91 95       	neg	r25
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+    uint8_t pwm_g = pgm_read_byte(&gamma_lut[g]);
+    uint8_t pwm_b = pgm_read_byte(&gamma_lut[b]);
+ 382:	fc 01       	movw	r30, r24
+ 384:	e8 59       	subi	r30, 0x98	; 152
+ 386:	ff 4f       	sbci	r31, 0xFF	; 255
+ 388:	24 91       	lpm	r18, Z
+
+    OCR1A = pwm_r;
+ 38a:	6a 2d       	mov	r22, r10
+ 38c:	70 e0       	ldi	r23, 0x00	; 0
+ 38e:	70 93 89 00 	sts	0x0089, r23	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 392:	60 93 88 00 	sts	0x0088, r22	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+    OCR1B = pwm_b;
+ 396:	30 e0       	ldi	r19, 0x00	; 0
+ 398:	30 93 8b 00 	sts	0x008B, r19	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 39c:	20 93 8a 00 	sts	0x008A, r18	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+    OCR2A = pwm_g;
+ 3a0:	b0 92 b3 00 	sts	0x00B3, r11	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 3a4:	8f e7       	ldi	r24, 0x7F	; 127
+ 3a6:	9b eb       	ldi	r25, 0xBB	; 187
+ 3a8:	01 97       	sbiw	r24, 0x01	; 1
+ 3aa:	f1 f7       	brne	.-4      	; 0x3a8 <main+0x146>
+ 3ac:	00 c0       	rjmp	.+0      	; 0x3ae <main+0x14c>
+ 3ae:	00 00       	nop
+ 3b0:	4f 5f       	subi	r20, 0xFF	; 255
+ 3b2:	5f 4f       	sbci	r21, 0xFF	; 255
+    hue_to_rgb((uint16_t)rand() % 1530, &random_r, &random_g, &random_b);
+    set_rgb_perceptual(random_r, random_g, random_b);
+    while (1) {
+
+        // w jednom strone
+        for (uint8_t i = 0; i < 128; i++) {
+ 3b4:	c4 16       	cp	r12, r20
+ 3b6:	d5 06       	cpc	r13, r21
+ 3b8:	09 f0       	breq	.+2      	; 0x3bc <main+0x15a>
+ 3ba:	ac cf       	rjmp	.-168    	; 0x314 <main+0xb2>
+ 3bc:	47 ee       	ldi	r20, 0xE7	; 231
+ 3be:	51 e0       	ldi	r21, 0x01	; 1
+            _delay_ms(12);
+        }
+
+        // i drugom
+        for (int16_t i = 127; i >= 0; i--) {
+            uint8_t breath = pgm_read_byte(&breath_sine[i]);
+ 3c0:	fa 01       	movw	r30, r20
+ 3c2:	84 90       	lpm	r8, Z
+
+            uint8_t r = (uint8_t)(((uint16_t)random_r * breath) / 255);
+ 3c4:	91 2c       	mov	r9, r1
+ 3c6:	80 9e       	mul	r8, r16
+ 3c8:	90 01       	movw	r18, r0
+ 3ca:	81 9e       	mul	r8, r17
+ 3cc:	30 0d       	add	r19, r0
+ 3ce:	90 9e       	mul	r9, r16
+ 3d0:	30 0d       	add	r19, r0
+ 3d2:	11 24       	eor	r1, r1
+ 3d4:	a1 e8       	ldi	r26, 0x81	; 129
+ 3d6:	b0 e8       	ldi	r27, 0x80	; 128
+ 3d8:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 3dc:	88 0f       	add	r24, r24
+ 3de:	89 2f       	mov	r24, r25
+ 3e0:	88 1f       	adc	r24, r24
+ 3e2:	99 0b       	sbc	r25, r25
+ 3e4:	91 95       	neg	r25
+    return ADC;
+}
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+ 3e6:	fc 01       	movw	r30, r24
+ 3e8:	e8 59       	subi	r30, 0x98	; 152
+ 3ea:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3ec:	a4 90       	lpm	r10, Z
+        // i drugom
+        for (int16_t i = 127; i >= 0; i--) {
+            uint8_t breath = pgm_read_byte(&breath_sine[i]);
+
+            uint8_t r = (uint8_t)(((uint16_t)random_r * breath) / 255);
+            uint8_t g = (uint8_t)(((uint16_t)random_g * breath) / 255);
+ 3ee:	c8 9d       	mul	r28, r8
+ 3f0:	90 01       	movw	r18, r0
+ 3f2:	c9 9d       	mul	r28, r9
+ 3f4:	30 0d       	add	r19, r0
+ 3f6:	d8 9d       	mul	r29, r8
+ 3f8:	30 0d       	add	r19, r0
+ 3fa:	11 24       	eor	r1, r1
+ 3fc:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 400:	88 0f       	add	r24, r24
+ 402:	89 2f       	mov	r24, r25
+ 404:	88 1f       	adc	r24, r24
+ 406:	99 0b       	sbc	r25, r25
+ 408:	91 95       	neg	r25
+}
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+    uint8_t pwm_g = pgm_read_byte(&gamma_lut[g]);
+ 40a:	fc 01       	movw	r30, r24
+ 40c:	e8 59       	subi	r30, 0x98	; 152
+ 40e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 410:	b4 90       	lpm	r11, Z
+        for (int16_t i = 127; i >= 0; i--) {
+            uint8_t breath = pgm_read_byte(&breath_sine[i]);
+
+            uint8_t r = (uint8_t)(((uint16_t)random_r * breath) / 255);
+            uint8_t g = (uint8_t)(((uint16_t)random_g * breath) / 255);
+            uint8_t b = (uint8_t)(((uint16_t)random_b * breath) / 255);
+ 412:	8e 9c       	mul	r8, r14
+ 414:	90 01       	movw	r18, r0
+ 416:	8f 9c       	mul	r8, r15
+ 418:	30 0d       	add	r19, r0
+ 41a:	9e 9c       	mul	r9, r14
+ 41c:	30 0d       	add	r19, r0
+ 41e:	11 24       	eor	r1, r1
+ 420:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 424:	88 0f       	add	r24, r24
+ 426:	89 2f       	mov	r24, r25
+ 428:	88 1f       	adc	r24, r24
+ 42a:	99 0b       	sbc	r25, r25
+ 42c:	91 95       	neg	r25
+
+static void set_rgb_perceptual(uint8_t r, uint8_t g, uint8_t b) {
+    // Pobranie rzeczywistego wypelnienia PWM po korekcji gamma
+    uint8_t pwm_r = pgm_read_byte(&gamma_lut[r]);
+    uint8_t pwm_g = pgm_read_byte(&gamma_lut[g]);
+    uint8_t pwm_b = pgm_read_byte(&gamma_lut[b]);
+ 42e:	fc 01       	movw	r30, r24
+ 430:	e8 59       	subi	r30, 0x98	; 152
+ 432:	ff 4f       	sbci	r31, 0xFF	; 255
+ 434:	24 91       	lpm	r18, Z
+
+    OCR1A = pwm_r;
+ 436:	6a 2d       	mov	r22, r10
+ 438:	70 e0       	ldi	r23, 0x00	; 0
+ 43a:	70 93 89 00 	sts	0x0089, r23	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 43e:	60 93 88 00 	sts	0x0088, r22	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+    OCR1B = pwm_b;
+ 442:	30 e0       	ldi	r19, 0x00	; 0
+ 444:	30 93 8b 00 	sts	0x008B, r19	; 0x80008b <__TEXT_REGION_LENGTH__+0x7f808b>
+ 448:	20 93 8a 00 	sts	0x008A, r18	; 0x80008a <__TEXT_REGION_LENGTH__+0x7f808a>
+    OCR2A = pwm_g;
+ 44c:	b0 92 b3 00 	sts	0x00B3, r11	; 0x8000b3 <__TEXT_REGION_LENGTH__+0x7f80b3>
+ 450:	8f e7       	ldi	r24, 0x7F	; 127
+ 452:	9b eb       	ldi	r25, 0xBB	; 187
+ 454:	01 97       	sbiw	r24, 0x01	; 1
+ 456:	f1 f7       	brne	.-4      	; 0x454 <__EEPROM_REGION_LENGTH__+0x54>
+ 458:	00 c0       	rjmp	.+0      	; 0x45a <__EEPROM_REGION_LENGTH__+0x5a>
+ 45a:	00 00       	nop
+ 45c:	41 50       	subi	r20, 0x01	; 1
+ 45e:	51 09       	sbc	r21, r1
+            set_rgb_perceptual(r, g, b);
+            _delay_ms(12);
+        }
+
+        // i drugom
+        for (int16_t i = 127; i >= 0; i--) {
+ 460:	91 e0       	ldi	r25, 0x01	; 1
+ 462:	47 36       	cpi	r20, 0x67	; 103
+ 464:	59 07       	cpc	r21, r25
+ 466:	09 f0       	breq	.+2      	; 0x46a <__EEPROM_REGION_LENGTH__+0x6a>
+ 468:	ab cf       	rjmp	.-170    	; 0x3c0 <main+0x15e>
+ 46a:	52 cf       	rjmp	.-348    	; 0x310 <main+0xae>
+        case 0:  *r = 255;          *g = offset;       *b = 0;            break; // R -> Y
+        case 1:  *r = 255 - offset; *g = 255;          *b = 0;            break; // Y -> G
+        case 2:  *r = 0;            *g = 255;          *b = offset;       break; // G -> C
+        case 3:  *r = 0;            *g = 255 - offset; *b = 255;          break; // C -> B
+        case 4:  *r = offset;       *g = 0;            *b = 255;          break; // B -> M
+        default: *r = 255;          *g = 0;            *b = 255 - offset; break; // M -> R
+ 46c:	80 95       	com	r24
+ 46e:	e8 2e       	mov	r14, r24
+ 470:	f1 2c       	mov	r15, r1
+ 472:	c7 01       	movw	r24, r14
+ 474:	88 59       	subi	r24, 0x98	; 152
+ 476:	9f 4f       	sbci	r25, 0xFF	; 255
+ 478:	48 e6       	ldi	r20, 0x68	; 104
+ 47a:	50 e0       	ldi	r21, 0x00	; 0
+ 47c:	e7 e6       	ldi	r30, 0x67	; 103
+ 47e:	f1 e0       	ldi	r31, 0x01	; 1
+ 480:	d0 e0       	ldi	r29, 0x00	; 0
+ 482:	c0 e0       	ldi	r28, 0x00	; 0
+ 484:	0f ef       	ldi	r16, 0xFF	; 255
+ 486:	10 e0       	ldi	r17, 0x00	; 0
+ 488:	2e cf       	rjmp	.-420    	; 0x2e6 <main+0x84>
+ 48a:	ac 01       	movw	r20, r24
+ 48c:	48 59       	subi	r20, 0x98	; 152
+ 48e:	5f 4f       	sbci	r21, 0xFF	; 255
+// daje kolor z H={hue}, S=255 i V=255 (jakas magia)
+static void hue_to_rgb(uint16_t hue, uint8_t *r, uint8_t *g, uint8_t *b) {
+    uint8_t sector = hue / 255;
+    uint8_t offset = hue % 255;
+
+    switch (sector) {
+ 490:	ec 01       	movw	r28, r24
+ 492:	88 e6       	ldi	r24, 0x68	; 104
+ 494:	90 e0       	ldi	r25, 0x00	; 0
+ 496:	e7 e6       	ldi	r30, 0x67	; 103
+ 498:	f1 e0       	ldi	r31, 0x01	; 1
+ 49a:	f1 2c       	mov	r15, r1
+ 49c:	e1 2c       	mov	r14, r1
+ 49e:	0f ef       	ldi	r16, 0xFF	; 255
+ 4a0:	10 e0       	ldi	r17, 0x00	; 0
+ 4a2:	21 cf       	rjmp	.-446    	; 0x2e6 <main+0x84>
+ 4a4:	63 30       	cpi	r22, 0x03	; 3
+ 4a6:	71 05       	cpc	r23, r1
+ 4a8:	e1 f0       	breq	.+56     	; 0x4e2 <__EEPROM_REGION_LENGTH__+0xe2>
+ 4aa:	64 30       	cpi	r22, 0x04	; 4
+ 4ac:	71 05       	cpc	r23, r1
+ 4ae:	f1 f6       	brne	.-68     	; 0x46c <__EEPROM_REGION_LENGTH__+0x6c>
+ 4b0:	fc 01       	movw	r30, r24
+ 4b2:	e8 59       	subi	r30, 0x98	; 152
+ 4b4:	ff 4f       	sbci	r31, 0xFF	; 255
+        case 0:  *r = 255;          *g = offset;       *b = 0;            break; // R -> Y
+        case 1:  *r = 255 - offset; *g = 255;          *b = 0;            break; // Y -> G
+        case 2:  *r = 0;            *g = 255;          *b = offset;       break; // G -> C
+        case 3:  *r = 0;            *g = 255 - offset; *b = 255;          break; // C -> B
+        case 4:  *r = offset;       *g = 0;            *b = 255;          break; // B -> M
+ 4b6:	87 e6       	ldi	r24, 0x67	; 103
+ 4b8:	91 e0       	ldi	r25, 0x01	; 1
+ 4ba:	48 e6       	ldi	r20, 0x68	; 104
+ 4bc:	50 e0       	ldi	r21, 0x00	; 0
+ 4be:	ee 24       	eor	r14, r14
+ 4c0:	ea 94       	dec	r14
+ 4c2:	f1 2c       	mov	r15, r1
+ 4c4:	d0 e0       	ldi	r29, 0x00	; 0
+ 4c6:	c0 e0       	ldi	r28, 0x00	; 0
+ 4c8:	0e cf       	rjmp	.-484    	; 0x2e6 <main+0x84>
+ 4ca:	88 59       	subi	r24, 0x98	; 152
+ 4cc:	9f 4f       	sbci	r25, 0xFF	; 255
+    uint8_t offset = hue % 255;
+
+    switch (sector) {
+        case 0:  *r = 255;          *g = offset;       *b = 0;            break; // R -> Y
+        case 1:  *r = 255 - offset; *g = 255;          *b = 0;            break; // Y -> G
+        case 2:  *r = 0;            *g = 255;          *b = offset;       break; // G -> C
+ 4ce:	78 01       	movw	r14, r16
+ 4d0:	47 e6       	ldi	r20, 0x67	; 103
+ 4d2:	51 e0       	ldi	r21, 0x01	; 1
+ 4d4:	e8 e6       	ldi	r30, 0x68	; 104
+ 4d6:	f0 e0       	ldi	r31, 0x00	; 0
+ 4d8:	cf ef       	ldi	r28, 0xFF	; 255
+ 4da:	d0 e0       	ldi	r29, 0x00	; 0
+ 4dc:	10 e0       	ldi	r17, 0x00	; 0
+ 4de:	00 e0       	ldi	r16, 0x00	; 0
+ 4e0:	02 cf       	rjmp	.-508    	; 0x2e6 <main+0x84>
+        case 3:  *r = 0;            *g = 255 - offset; *b = 255;          break; // C -> B
+ 4e2:	80 95       	com	r24
+ 4e4:	c8 2f       	mov	r28, r24
+ 4e6:	d0 e0       	ldi	r29, 0x00	; 0
+ 4e8:	ae 01       	movw	r20, r28
+ 4ea:	48 59       	subi	r20, 0x98	; 152
+ 4ec:	5f 4f       	sbci	r21, 0xFF	; 255
+ 4ee:	87 e6       	ldi	r24, 0x67	; 103
+ 4f0:	91 e0       	ldi	r25, 0x01	; 1
+ 4f2:	e8 e6       	ldi	r30, 0x68	; 104
+ 4f4:	f0 e0       	ldi	r31, 0x00	; 0
+ 4f6:	ee 24       	eor	r14, r14
+ 4f8:	ea 94       	dec	r14
+ 4fa:	f1 2c       	mov	r15, r1
+ 4fc:	10 e0       	ldi	r17, 0x00	; 0
+ 4fe:	00 e0       	ldi	r16, 0x00	; 0
+ 500:	f2 ce       	rjmp	.-540    	; 0x2e6 <main+0x84>
+
+00000502 <__udivmodhi4>:
+ 502:	aa 1b       	sub	r26, r26
+ 504:	bb 1b       	sub	r27, r27
+ 506:	51 e1       	ldi	r21, 0x11	; 17
+ 508:	07 c0       	rjmp	.+14     	; 0x518 <__udivmodhi4_ep>
+
+0000050a <__udivmodhi4_loop>:
+ 50a:	aa 1f       	adc	r26, r26
+ 50c:	bb 1f       	adc	r27, r27
+ 50e:	a6 17       	cp	r26, r22
+ 510:	b7 07       	cpc	r27, r23
+ 512:	10 f0       	brcs	.+4      	; 0x518 <__udivmodhi4_ep>
+ 514:	a6 1b       	sub	r26, r22
+ 516:	b7 0b       	sbc	r27, r23
+
+00000518 <__udivmodhi4_ep>:
+ 518:	88 1f       	adc	r24, r24
+ 51a:	99 1f       	adc	r25, r25
+ 51c:	5a 95       	dec	r21
+ 51e:	a9 f7       	brne	.-22     	; 0x50a <__udivmodhi4_loop>
+ 520:	80 95       	com	r24
+ 522:	90 95       	com	r25
+ 524:	bc 01       	movw	r22, r24
+ 526:	cd 01       	movw	r24, r26
+ 528:	08 95       	ret
+
+0000052a <__divmodhi4>:
+ 52a:	97 fb       	bst	r25, 7
+ 52c:	07 2e       	mov	r0, r23
+ 52e:	16 f4       	brtc	.+4      	; 0x534 <__divmodhi4+0xa>
+ 530:	00 94       	com	r0
+ 532:	07 d0       	rcall	.+14     	; 0x542 <__divmodhi4_neg1>
+ 534:	77 fd       	sbrc	r23, 7
+ 536:	09 d0       	rcall	.+18     	; 0x54a <__divmodhi4_neg2>
+ 538:	0e 94 81 02 	call	0x502	; 0x502 <__udivmodhi4>
+ 53c:	07 fc       	sbrc	r0, 7
+ 53e:	05 d0       	rcall	.+10     	; 0x54a <__divmodhi4_neg2>
+ 540:	3e f4       	brtc	.+14     	; 0x550 <__divmodhi4_exit>
+
+00000542 <__divmodhi4_neg1>:
+ 542:	90 95       	com	r25
+ 544:	81 95       	neg	r24
+ 546:	9f 4f       	sbci	r25, 0xFF	; 255
+ 548:	08 95       	ret
+
+0000054a <__divmodhi4_neg2>:
+ 54a:	70 95       	com	r23
+ 54c:	61 95       	neg	r22
+ 54e:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000550 <__divmodhi4_exit>:
+ 550:	08 95       	ret
+
+00000552 <__umulhisi3>:
+ 552:	a2 9f       	mul	r26, r18
+ 554:	b0 01       	movw	r22, r0
+ 556:	b3 9f       	mul	r27, r19
+ 558:	c0 01       	movw	r24, r0
+ 55a:	a3 9f       	mul	r26, r19
+ 55c:	70 0d       	add	r23, r0
+ 55e:	81 1d       	adc	r24, r1
+ 560:	11 24       	eor	r1, r1
+ 562:	91 1d       	adc	r25, r1
+ 564:	b2 9f       	mul	r27, r18
+ 566:	70 0d       	add	r23, r0
+ 568:	81 1d       	adc	r24, r1
+ 56a:	11 24       	eor	r1, r1
+ 56c:	91 1d       	adc	r25, r1
+ 56e:	08 95       	ret
+
+00000570 <do_rand>:
+ 570:	8f 92       	push	r8
+ 572:	9f 92       	push	r9
+ 574:	af 92       	push	r10
+ 576:	bf 92       	push	r11
+ 578:	cf 92       	push	r12
+ 57a:	df 92       	push	r13
+ 57c:	ef 92       	push	r14
+ 57e:	ff 92       	push	r15
+ 580:	cf 93       	push	r28
+ 582:	df 93       	push	r29
+ 584:	ec 01       	movw	r28, r24
+ 586:	68 81       	ld	r22, Y
+ 588:	79 81       	ldd	r23, Y+1	; 0x01
+ 58a:	8a 81       	ldd	r24, Y+2	; 0x02
+ 58c:	9b 81       	ldd	r25, Y+3	; 0x03
+ 58e:	61 15       	cp	r22, r1
+ 590:	71 05       	cpc	r23, r1
+ 592:	81 05       	cpc	r24, r1
+ 594:	91 05       	cpc	r25, r1
+ 596:	21 f4       	brne	.+8      	; 0x5a0 <do_rand+0x30>
+ 598:	64 e2       	ldi	r22, 0x24	; 36
+ 59a:	79 ed       	ldi	r23, 0xD9	; 217
+ 59c:	8b e5       	ldi	r24, 0x5B	; 91
+ 59e:	97 e0       	ldi	r25, 0x07	; 7
+ 5a0:	2d e1       	ldi	r18, 0x1D	; 29
+ 5a2:	33 ef       	ldi	r19, 0xF3	; 243
+ 5a4:	41 e0       	ldi	r20, 0x01	; 1
+ 5a6:	50 e0       	ldi	r21, 0x00	; 0
+ 5a8:	0e 94 14 03 	call	0x628	; 0x628 <__divmodsi4>
+ 5ac:	49 01       	movw	r8, r18
+ 5ae:	5a 01       	movw	r10, r20
+ 5b0:	9b 01       	movw	r18, r22
+ 5b2:	ac 01       	movw	r20, r24
+ 5b4:	a7 ea       	ldi	r26, 0xA7	; 167
+ 5b6:	b1 e4       	ldi	r27, 0x41	; 65
+ 5b8:	0e 94 33 03 	call	0x666	; 0x666 <__muluhisi3>
+ 5bc:	6b 01       	movw	r12, r22
+ 5be:	7c 01       	movw	r14, r24
+ 5c0:	ac ee       	ldi	r26, 0xEC	; 236
+ 5c2:	b4 ef       	ldi	r27, 0xF4	; 244
+ 5c4:	a5 01       	movw	r20, r10
+ 5c6:	94 01       	movw	r18, r8
+ 5c8:	0e 94 41 03 	call	0x682	; 0x682 <__mulohisi3>
+ 5cc:	dc 01       	movw	r26, r24
+ 5ce:	cb 01       	movw	r24, r22
+ 5d0:	8c 0d       	add	r24, r12
+ 5d2:	9d 1d       	adc	r25, r13
+ 5d4:	ae 1d       	adc	r26, r14
+ 5d6:	bf 1d       	adc	r27, r15
+ 5d8:	b7 ff       	sbrs	r27, 7
+ 5da:	03 c0       	rjmp	.+6      	; 0x5e2 <do_rand+0x72>
+ 5dc:	01 97       	sbiw	r24, 0x01	; 1
+ 5de:	a1 09       	sbc	r26, r1
+ 5e0:	b0 48       	sbci	r27, 0x80	; 128
+ 5e2:	88 83       	st	Y, r24
+ 5e4:	99 83       	std	Y+1, r25	; 0x01
+ 5e6:	aa 83       	std	Y+2, r26	; 0x02
+ 5e8:	bb 83       	std	Y+3, r27	; 0x03
+ 5ea:	9f 77       	andi	r25, 0x7F	; 127
+ 5ec:	df 91       	pop	r29
+ 5ee:	cf 91       	pop	r28
+ 5f0:	ff 90       	pop	r15
+ 5f2:	ef 90       	pop	r14
+ 5f4:	df 90       	pop	r13
+ 5f6:	cf 90       	pop	r12
+ 5f8:	bf 90       	pop	r11
+ 5fa:	af 90       	pop	r10
+ 5fc:	9f 90       	pop	r9
+ 5fe:	8f 90       	pop	r8
+ 600:	08 95       	ret
+
+00000602 <rand_r>:
+ 602:	0e 94 b8 02 	call	0x570	; 0x570 <do_rand>
+ 606:	08 95       	ret
+
+00000608 <rand>:
+ 608:	80 e0       	ldi	r24, 0x00	; 0
+ 60a:	91 e0       	ldi	r25, 0x01	; 1
+ 60c:	0e 94 b8 02 	call	0x570	; 0x570 <do_rand>
+ 610:	08 95       	ret
+
+00000612 <srand>:
+ 612:	b0 e0       	ldi	r27, 0x00	; 0
+ 614:	a0 e0       	ldi	r26, 0x00	; 0
+ 616:	80 93 00 01 	sts	0x0100, r24	; 0x800100 <__DATA_REGION_ORIGIN__>
+ 61a:	90 93 01 01 	sts	0x0101, r25	; 0x800101 <__DATA_REGION_ORIGIN__+0x1>
+ 61e:	a0 93 02 01 	sts	0x0102, r26	; 0x800102 <__DATA_REGION_ORIGIN__+0x2>
+ 622:	b0 93 03 01 	sts	0x0103, r27	; 0x800103 <__DATA_REGION_ORIGIN__+0x3>
+ 626:	08 95       	ret
+
+00000628 <__divmodsi4>:
+ 628:	05 2e       	mov	r0, r21
+ 62a:	97 fb       	bst	r25, 7
+ 62c:	1e f4       	brtc	.+6      	; 0x634 <__divmodsi4+0xc>
+ 62e:	00 94       	com	r0
+ 630:	0e 94 2b 03 	call	0x656	; 0x656 <__negsi2>
+ 634:	57 fd       	sbrc	r21, 7
+ 636:	07 d0       	rcall	.+14     	; 0x646 <__divmodsi4_neg2>
+ 638:	0e 94 46 03 	call	0x68c	; 0x68c <__udivmodsi4>
+ 63c:	07 fc       	sbrc	r0, 7
+ 63e:	03 d0       	rcall	.+6      	; 0x646 <__divmodsi4_neg2>
+ 640:	4e f4       	brtc	.+18     	; 0x654 <__divmodsi4_exit>
+ 642:	0c 94 2b 03 	jmp	0x656	; 0x656 <__negsi2>
+
+00000646 <__divmodsi4_neg2>:
+ 646:	50 95       	com	r21
+ 648:	40 95       	com	r20
+ 64a:	30 95       	com	r19
+ 64c:	21 95       	neg	r18
+ 64e:	3f 4f       	sbci	r19, 0xFF	; 255
+ 650:	4f 4f       	sbci	r20, 0xFF	; 255
+ 652:	5f 4f       	sbci	r21, 0xFF	; 255
+
+00000654 <__divmodsi4_exit>:
+ 654:	08 95       	ret
+
+00000656 <__negsi2>:
+ 656:	90 95       	com	r25
+ 658:	80 95       	com	r24
+ 65a:	70 95       	com	r23
+ 65c:	61 95       	neg	r22
+ 65e:	7f 4f       	sbci	r23, 0xFF	; 255
+ 660:	8f 4f       	sbci	r24, 0xFF	; 255
+ 662:	9f 4f       	sbci	r25, 0xFF	; 255
+ 664:	08 95       	ret
+
+00000666 <__muluhisi3>:
+ 666:	0e 94 a9 02 	call	0x552	; 0x552 <__umulhisi3>
+ 66a:	a5 9f       	mul	r26, r21
+ 66c:	90 0d       	add	r25, r0
+ 66e:	b4 9f       	mul	r27, r20
+ 670:	90 0d       	add	r25, r0
+ 672:	a4 9f       	mul	r26, r20
+ 674:	80 0d       	add	r24, r0
+ 676:	91 1d       	adc	r25, r1
+ 678:	11 24       	eor	r1, r1
+ 67a:	08 95       	ret
+
+0000067c <__mulshisi3>:
+ 67c:	b7 ff       	sbrs	r27, 7
+ 67e:	0c 94 33 03 	jmp	0x666	; 0x666 <__muluhisi3>
+
+00000682 <__mulohisi3>:
+ 682:	0e 94 33 03 	call	0x666	; 0x666 <__muluhisi3>
+ 686:	82 1b       	sub	r24, r18
+ 688:	93 0b       	sbc	r25, r19
+ 68a:	08 95       	ret
+
+0000068c <__udivmodsi4>:
+ 68c:	a1 e2       	ldi	r26, 0x21	; 33
+ 68e:	1a 2e       	mov	r1, r26
+ 690:	aa 1b       	sub	r26, r26
+ 692:	bb 1b       	sub	r27, r27
+ 694:	fd 01       	movw	r30, r26
+ 696:	0d c0       	rjmp	.+26     	; 0x6b2 <__udivmodsi4_ep>
+
+00000698 <__udivmodsi4_loop>:
+ 698:	aa 1f       	adc	r26, r26
+ 69a:	bb 1f       	adc	r27, r27
+ 69c:	ee 1f       	adc	r30, r30
+ 69e:	ff 1f       	adc	r31, r31
+ 6a0:	a2 17       	cp	r26, r18
+ 6a2:	b3 07       	cpc	r27, r19
+ 6a4:	e4 07       	cpc	r30, r20
+ 6a6:	f5 07       	cpc	r31, r21
+ 6a8:	20 f0       	brcs	.+8      	; 0x6b2 <__udivmodsi4_ep>
+ 6aa:	a2 1b       	sub	r26, r18
+ 6ac:	b3 0b       	sbc	r27, r19
+ 6ae:	e4 0b       	sbc	r30, r20
+ 6b0:	f5 0b       	sbc	r31, r21
+
+000006b2 <__udivmodsi4_ep>:
+ 6b2:	66 1f       	adc	r22, r22
+ 6b4:	77 1f       	adc	r23, r23
+ 6b6:	88 1f       	adc	r24, r24
+ 6b8:	99 1f       	adc	r25, r25
+ 6ba:	1a 94       	dec	r1
+ 6bc:	69 f7       	brne	.-38     	; 0x698 <__udivmodsi4_loop>
+ 6be:	60 95       	com	r22
+ 6c0:	70 95       	com	r23
+ 6c2:	80 95       	com	r24
+ 6c4:	90 95       	com	r25
+ 6c6:	9b 01       	movw	r18, r22
+ 6c8:	ac 01       	movw	r20, r24
+ 6ca:	bd 01       	movw	r22, r26
+ 6cc:	cf 01       	movw	r24, r30
+ 6ce:	08 95       	ret
+
+000006d0 <_exit>:
+ 6d0:	f8 94       	cli
+
+000006d2 <__stop_program>:
+ 6d2:	ff cf       	rjmp	.-2      	; 0x6d2 <__stop_program>
